@@ -14,7 +14,8 @@ Este proyecto simula un torneo de ajedrez donde los jugadores se ordenan por su 
 Los jugadores se registran con su nombre y su valor de ELO. Estos valores se almacenan en vectores.
 
 
-**Ordenamiento por ELO (Merge Sort): **
+**Ordenamiento por ELO (Merge Sort):**
+
 
 El programa utiliza el algoritmo Merge Sort para ordenar los jugadores de manera eficiente según su ELO. Merge Sort es un algoritmo con una complejidad de (nlogn), lo que lo hace ideal para este tipo de ordenamientos.
 
