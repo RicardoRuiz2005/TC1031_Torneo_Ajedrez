@@ -8,6 +8,20 @@ Este proyecto simula un torneo de ajedrez donde los jugadores se ordenan por su 
 
 **Funcionalidad:**
 
+># Torneo de Ajedrez
+>
+>Este programa simula un torneo de ajedrez y ordena a los jugadores por su ELO.
+>
+>## Funciones
+>
+>1. **Ver jugadores**: Muestra una lista de jugadores y sus ELOs.
+>   
+>2. **Ordenar jugadores**: Ordena a los jugadores por ELO (de mayor a menor) usando **Merge Sort**.
+>
+>3. **Agregar jugador**: Permite ingresar el nombre y el ELO de un nuevo jugador.
+>
+>4. **Salir**: Cierra el programa.
+
 
 **Registro de Jugadores:**
 
