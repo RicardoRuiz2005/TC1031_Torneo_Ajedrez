@@ -14,6 +14,15 @@ void imprimirJugadores(const vector<string>& nombres, const vector<int>& elos) {
     }
 }
 
+/*
+Para ordenar los jugadores de ajedrez por su ELO, 
+utilicé Merge Sort porque es un algoritmo que organiza los datos 
+dividiendo la lista en partes más pequeñas. Primero, el algoritmo separa a los jugadores 
+en grupos hasta que cada grupo tiene un solo jugador. Luego, esos grupos se van juntando 
+de nuevo, pero esta vez en orden, comparando los ELOs de cada jugador. Me gustó usar Merge Sort 
+porque es eficiente y siempre ordena correctamente, incluso cuando la lista está muy desordenada.
+*/
+
 // Funcion recursiva que mezcla y ordena (merge sort)
 void merge(vector<string>& nombres, vector<int>& elos, int izquierda, int mid, int derecha) {
     int n1 = mid - izquierda + 1;
