@@ -1,4 +1,4 @@
-**Proyecto: Torneo de Ajedrez - Ordenamiento por ELO**
+***Proyecto: Torneo de Ajedrez - Ordenamiento por ELO***
 
 *Descripción del Programa:*
 Este proyecto simula un torneo de ajedrez donde los jugadores se ordenan por su valor de ELO utilizando un algoritmo recursivo. Cada jugador tiene un valor de ELO que representa su nivel de habilidad. El objetivo es registrar a los jugadores, ordenar los valores de ELO de mayor a menor y mostrar los resultados.
