@@ -5,6 +5,7 @@
 Este proyecto simula un torneo de ajedrez donde los jugadores se ordenan por su valor de ELO utilizando un algoritmo recursivo. Cada jugador tiene un valor de ELO que representa su nivel de habilidad. El objetivo es registrar a los jugadores, ordenar los valores de ELO de mayor a menor y mostrar los resultados.
 
 **Funcionalidad:**
+
 Registro de Jugadores: Los jugadores se registran con su nombre y su valor de ELO. Estos valores se almacenan en vectores.
 
 Ordenamiento por ELO (Merge Sort): El programa utiliza el algoritmo Merge Sort para ordenar los jugadores de manera eficiente según su ELO. Merge Sort es un algoritmo con una complejidad de (nlogn), lo que lo hace ideal para este tipo de ordenamientos.
