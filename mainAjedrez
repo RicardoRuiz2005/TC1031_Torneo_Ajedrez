@@ -1,11 +1,15 @@
 #include <iostream>
 #include <vector>
-#include "torneo.h"  // Incluir el archivo de cabecera
+#include "torneo.h"
 
 using namespace std;
 
 int main() {
-    // Inicialización de los nombres de los jugadores y sus ELOs (compatible con C++98)
+    int opcion_1, opcion_2;
+    bool bucle_1 = false, bucle_2 = false;
+
+    cout << "Bienvenido al dojo de Ajedrez" << endl;
+
     vector<string> nombres;
     nombres.push_back("Magnus Carlsen");
     nombres.push_back("Ian Nepomniachtchi");
@@ -40,17 +44,42 @@ int main() {
     elos.push_back(2750);
     elos.push_back(2749);
 
-    // Opción 1: Imprime la lista original de jugadores con su ELO
-    cout << "Lista de jugadores y su ELO antes del torneo:\n";
-    imprimirJugadores(nombres, elos);
+    while (bucle_1 == false) {
+        cout << "Escoge tu destino: \n1. Ver jugadores \n2. Hacer torneo \n3. Agregar jugador \n4. Salir del dojo" << endl;
+        cin >> opcion_1;
 
-    // Opción 2: Ejecuta el torneo (ordenar los jugadores por ELO de forma recursiva)
-    cout << "\nIniciando el torneo...\n";
-    ordenarELO(nombres, elos, 0, nombres.size() - 1);
+        if (opcion_1 == 1) {
+            cout << "Lista de jugadores y su ELO antes del torneo:\n"<<endl;
+            imprimirJugadores(nombres, elos);
+            
+        } else if (opcion_1 == 2) {
+            cout << "\nIniciando el torneo...\n";
+            ordenarELO(nombres, elos, 0, nombres.size() - 1);
 
-    // Imprime la lista ordenada de jugadores por ELO
-    cout << "\nLista de jugadores y su ELO después del torneo (ordenada):\n";
-    imprimirJugadores(nombres, elos);
+            cout << "\nLista de jugadores y su ELO después del torneo (ordenada):\n";
+            imprimirJugadores(nombres, elos);
+            
+        } else if (opcion_1 == 3) {
+            string nuevo_nombre;
+            int nuevo_elo;
+            cout << "Ingresa el nombre del nuevo jugador: ";
+            cin.ignore();  // el "ignore" ignorar el salto de línea pendiente
+            getline(cin, nuevo_nombre);  // Uso getline para capturar nombres completos con espacios
+            cout << "Ingresa el ELO del nuevo jugador: ";
+            cin >> nuevo_elo;
 
+            // Con esta opcion podemos agregar un nuevo jugador y su ELO a las listas
+            nombres.push_back(nuevo_nombre);
+            elos.push_back(nuevo_elo);
+
+            cout << "Jugador agregado exitosamente.\n" << endl;
+        } else if (opcion_1 == 4) {
+            cout << "Saliendo del dojo" << endl;
+            bucle_1 = true;
+        } else {
+            cout << "La opcion no esta disponible" << endl;
+            cout << "Le invitamos a usar otra opcion. Gracias" << endl;
+        }
+    }
     return 0;
 }
