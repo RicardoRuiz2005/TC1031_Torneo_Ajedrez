@@ -8,32 +8,58 @@ Este proyecto simula un torneo de ajedrez donde los jugadores se ordenan por su 
 
 **Funcionalidad:**
 
-Registro de Jugadores: Los jugadores se registran con su nombre y su valor de ELO. Estos valores se almacenan en vectores.
+
+**Registro de Jugadores:**
+
+Los jugadores se registran con su nombre y su valor de ELO. Estos valores se almacenan en vectores.
 
 
-Ordenamiento por ELO (Merge Sort): El programa utiliza el algoritmo Merge Sort para ordenar los jugadores de manera eficiente según su ELO. Merge Sort es un algoritmo con una complejidad de (nlogn), lo que lo hace ideal para este tipo de ordenamientos.
+**Ordenamiento por ELO (Merge Sort): **
+
+El programa utiliza el algoritmo Merge Sort para ordenar los jugadores de manera eficiente según su ELO. Merge Sort es un algoritmo con una complejidad de (nlogn), lo que lo hace ideal para este tipo de ordenamientos.
 
 
 **Impresión de Resultados:**
+
 El programa permite imprimir la lista de jugadores y sus valores de ELO antes y después de ordenar.
 
 
 **Componentes Principales:**
 
+
 Registro de Jugadores: El programa permite registrar jugadores y sus ELOs. Estos datos se almacenan en dos vectores, uno para los nombres y otro para los ELOs.
 
-Ordenamiento por Merge Sort: Este algoritmo recursivo divide la lista de jugadores en dos partes, las ordena de forma recursiva y luego combina las listas ordenadas. Esto garantiza que los jugadores se ordenen de manera eficiente por su ELO.
+**Ordenamiento por Merge Sort:**
 
-Imprimir Jugadores: Esta función muestra los nombres de los jugadores junto con sus valores de ELO, lo que permite verificar el estado antes y después del torneo.
 
-Estructura del Código:
+Este algoritmo recursivo divide la lista de jugadores en dos partes, las ordena de forma recursiva y luego combina las listas ordenadas. Esto garantiza que los jugadores se ordenen de manera eficiente por su ELO.
+
+
+
+**Imprimir Jugadores:**
+
+Esta función muestra los nombres de los jugadores junto con sus valores de ELO, lo que permite verificar el estado antes y después del torneo.
+
+
+**Estructura del Código:**
+
+
 Lista de Jugadores: Se usa un vector para los nombres y otro para los ELOs.
 
-Merge Sort: El algoritmo se encarga de ordenar los jugadores según su valor de ELO, de mayor a menor.
 
-Imprimir Resultados: Al finalizar el ordenamiento, el programa imprime los resultados del torneo, mostrando los jugadores en orden descendente de acuerdo con su ELO.
+**Merge Sort:**
 
-Análisis de Complejidad:
+El algoritmo se encarga de ordenar los jugadores según su valor de ELO, de mayor a menor.
+
+
+**Imprimir Resultados:**
+
+
+Al finalizar el ordenamiento, el programa imprime los resultados del torneo, mostrando los jugadores en orden descendente de acuerdo con su ELO.
+
+**Análisis de Complejidad:**
+
+
 Inserción de Jugadores: O(1) para agregar un jugador al final del vector.
 
 Búsqueda de Jugadores: O(n) al recorrer la lista para imprimir los jugadores.
