@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include "torneo.h"  // Incluir el archivo de cabecera
+
+using namespace std;
+
+int main() {
+    // Inicialización de los nombres de los jugadores y sus ELOs (compatible con C++98)
+    vector<string> nombres;
+    nombres.push_back("Magnus Carlsen");
+    nombres.push_back("Ian Nepomniachtchi");
+    nombres.push_back("Ding Liren");
+    nombres.push_back("Fabiano Caruana");
+    nombres.push_back("Anish Giri");
+    nombres.push_back("Levon Aronian");
+    nombres.push_back("Hikaru Nakamura");
+    nombres.push_back("Wesley So");
+    nombres.push_back("Maxime Vachier-Lagrave");
+    nombres.push_back("Shakhriyar Mamedyarov");
+    nombres.push_back("Teimour Radjabov");
+    nombres.push_back("Sergey Karjakin");
+    nombres.push_back("Vladimir Kramnik");
+    nombres.push_back("Veselin Topalov");
+    nombres.push_back("Viswanathan Anand");
+
+    vector<int> elos;
+    elos.push_back(2852);
+    elos.push_back(2793);
+    elos.push_back(2811);
+    elos.push_back(2786);
+    elos.push_back(2779);
+    elos.push_back(2775);
+    elos.push_back(2768);
+    elos.push_back(2766);
+    elos.push_back(2764);
+    elos.push_back(2763);
+    elos.push_back(2765);
+    elos.push_back(2758);
+    elos.push_back(2753);
+    elos.push_back(2750);
+    elos.push_back(2749);
+
+    // Opción 1: Imprime la lista original de jugadores con su ELO
+    cout << "Lista de jugadores y su ELO antes del torneo:\n";
+    imprimirJugadores(nombres, elos);
+
+    // Opción 2: Ejecuta el torneo (ordenar los jugadores por ELO de forma recursiva)
+    cout << "\nIniciando el torneo...\n";
+    ordenarELO(nombres, elos, 0, nombres.size() - 1);
+
+    // Imprime la lista ordenada de jugadores por ELO
+    cout << "\nLista de jugadores y su ELO después del torneo (ordenada):\n";
+    imprimirJugadores(nombres, elos);
+
+    return 0;
+}
