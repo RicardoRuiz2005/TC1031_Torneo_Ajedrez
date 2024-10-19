@@ -1,45 +1,101 @@
-Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
-Este proyecto simula un torneo de ajedrez donde los jugadores son registrados con sus nombres y valores de ELO, lo que refleja su nivel de habilidad en el juego. Los jugadores se ordenan de mayor a menor según su ELO usando el algoritmo Merge Sort. El objetivo es organizar a los jugadores de manera eficiente y simular sus enfrentamientos, mostrando cómo varía su ELO después de cada partida.
+# Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
 
-Descripción del avance 1
+Este proyecto simula un torneo de ajedrez donde los jugadores son registrados con sus nombres y valores de ELO, lo que refleja su nivel de habilidad en el juego. Los jugadores se ordenan de mayor a menor según su ELO usando el algoritmo **Merge Sort**. El objetivo es organizar a los jugadores de manera eficiente y simular sus enfrentamientos, mostrando cómo varía su ELO después de cada partida.
+
+---
+
+## Descripción del avance 1
+
 En este primer avance del proyecto, se implementan las funcionalidades principales del programa:
-Registro de jugadores con sus nombres y valores de ELO.
-Visualización de la lista de jugadores con sus ELOs.
-Ordenamiento de los jugadores usando Merge Sort, ordenando de mayor a menor ELO.
-Simulación de un torneo, donde se enfrentan los jugadores y sus ELOs se actualizan en función de los resultados de los partidos.
-Al finalizar, se muestra la lista de jugadores ordenados por su ELO actualizado tras el torneo.
 
-Descripción de las entradas del avance de proyecto
+- Registro de jugadores con sus nombres y valores de ELO.
+- Visualización de la lista de jugadores con sus ELOs.
+- Ordenamiento de los jugadores usando **Merge Sort**, ordenando de mayor a menor ELO.
+- Simulación de un torneo, donde se enfrentan los jugadores y sus ELOs se actualizan en función de los resultados de los partidos.
+- Al finalizar, se muestra la lista de jugadores ordenados por su ELO actualizado tras el torneo.
+
+---
+
+## Descripción del avance 2
+
+En este segundo avance, se han realizado mejoras significativas en la funcionalidad del programa:
+
+### Cambios Realizados:
+
+1. **Unificación de Datos en una Clase**:
+   - **Cambio**: Se consolidó la información de los jugadores (nombre y ELO) en una única clase `Jugador`.
+   - **Razón del cambio**: Esto mejora la organización del código y permite un manejo más eficiente de los datos de los jugadores, haciendo que el código sea más limpio y formal.
+
+2. **Reestructuración de la Salida**:
+   - **Cambio**: Se mejoró la presentación de los resultados al mostrar la lista de jugadores después del torneo, incluyendo su posición en la lista.
+   - **Razón del cambio**: Esto hace que los resultados sean más fáciles de leer y comprender para el usuario, añadiendo claridad a la interfaz del programa.
+
+3. **Mejora en la Simulación del Torneo**:
+   - **Cambio**: Se optimizó la forma en que se simulan las partidas y se ajustan los ELOs, haciéndolo más representativo de la competencia real.
+   - **Razón del cambio**: Esto proporciona una experiencia más realista y educativa, al reflejar de mejor manera cómo funciona el sistema de ELO en el ajedrez.
+
+4. **Cambios en el Texto y la Documentación**:
+   - **Cambio**: El texto del README se modificó para incluir una descripción más clara y detallada de las funcionalidades y los avances del proyecto.
+   - **Razón del cambio**: El texto cambió drásticamente para hacer la documentación más formal y accesible, facilitando la comprensión del proyecto.
+
+5. **Implementación de Búsqueda por ELO**:
+   - **Cambio**: Se añadió la opción de buscar jugadores por su ELO usando un árbol binario de búsqueda (BST).
+   - **Razón del cambio**: Esto mejora la funcionalidad del programa, permitiendo a los usuarios encontrar jugadores específicos de manera más eficiente.
+
+---
+
+## Descripción de las entradas del avance de proyecto
+
 El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero también permite agregar nuevos jugadores durante la ejecución.
-Ejemplo de jugadores predefinidos:
-Magnus Carlsen, ELO: 2852
-Ian Nepomniachtchi, ELO: 2793
-Ding Liren, ELO: 2811
-Fabiano Caruana, ELO: 2786
-Anish Giri, ELO: 2779
-El usuario puede agregar jugadores adicionales proporcionando el nombre y el ELO en el programa.
 
-Descripción de las salidas del avance de proyecto
+**Ejemplo de jugadores predefinidos**:
+
+- Magnus Carlsen, ELO: 2852  
+- Ian Nepomniachtchi, ELO: 2793  
+- Ding Liren, ELO: 2811  
+- Fabiano Caruana, ELO: 2786  
+- Anish Giri, ELO: 2779
+
+---
+
+## Descripción de las salidas del avance de proyecto
+
 Al ejecutar el programa, obtendrás los siguientes resultados:
-Lista de jugadores antes del torneo: Se imprime la lista de jugadores con sus nombres y ELO en el orden en que fueron registrados.
-Resultados del torneo: El programa simula los enfrentamientos entre los jugadores, mostrando quién ganó o si hubo un empate. Luego, se actualizan los ELOs de los jugadores en función de los resultados.
-Lista de jugadores después del torneo: Una vez que el torneo ha concluido, se imprime la lista de jugadores ordenada por su ELO de mayor a menor.
 
-Desarrollo de competencias
-SICT0301: Evalúa los componentes
-En este avance, se realizó un análisis de la eficiencia de los componentes clave del programa, principalmente el algoritmo Merge Sort, que es utilizado para ordenar los jugadores por ELO.
-Análisis de complejidad:
-Inserción de jugadores: La inserción de un jugador en la lista tiene una complejidad de O(1), es decir, la operación se realiza de manera instantánea porque solo se agrega al final de la lista. En casos donde la capacidad de la lista se llena y necesita más espacio, podría aumentar temporalmente a O(n), pero esto sucede raramente.
-Búsqueda e impresión de jugadores: Para mostrar la lista de jugadores, el programa recorre cada uno de ellos, lo que implica una complejidad de O(n), ya que revisa todos los jugadores uno por uno.
-Ordenamiento de jugadores (Merge Sort): El algoritmo Merge Sort utilizado para ordenar la lista tiene una complejidad de O(n log n), lo que lo hace muy eficiente incluso para listas grandes. Esto significa que, si tienes más jugadores, el tiempo de ordenamiento crece de forma moderada.
-Análisis del Mejor, Peor y Caso Promedio de Merge Sort:
-Mejor caso: El mejor caso para Merge Sort ocurre cuando la lista ya está ordenada. Aún en este caso, Merge Sort siempre divide y combina las listas de manera recursiva, por lo que la complejidad sigue siendo O(n log n). A diferencia de otros algoritmos, como Quick Sort, Merge Sort no tiene un mejor rendimiento si la lista ya está ordenada.
-Caso promedio: En la mayoría de las veces, cuando el orden de la lista es aleatorio, el comportamiento de Merge Sort sigue siendo O(n log n). Esto significa que la eficiencia del algoritmo no cambia dependiendo del nivel de desorden en la lista.
-Peor caso: Incluso en el peor de los casos (cuando la lista está completamente desordenada), la complejidad sigue siendo O(n log n). Merge Sort es estable y eficiente en el peor escenario, lo que lo hace una elección sólida para ordenar grandes cantidades de datos.
-En resumen, Merge Sort es un algoritmo que siempre tiene un comportamiento predecible y eficiente, sin importar el nivel de desorden de los datos. Su estabilidad y eficiencia hacen que sea una excelente opción para este tipo de problemas.
+1. **Lista de jugadores antes del torneo**: Se imprime la lista de jugadores con sus nombres y ELO en el orden en que fueron registrados.
+2. **Resultados del torneo**: El programa simula los enfrentamientos entre los jugadores, mostrando quién ganó o si hubo un empate. Luego, actualiza los ELOs de los jugadores en función de los resultados.
+3. **Lista de jugadores después del torneo**: Una vez que el torneo ha concluido, se imprime la lista de jugadores ordenada por su ELO de mayor a menor.
 
-SICT0302: Toma decisiones
-Se eligió el algoritmo Merge Sort para ordenar los jugadores por ELO debido a su eficiencia y estabilidad. Merge Sort garantiza una complejidad O(n log n) en todos los casos, lo que lo hace ideal para ordenar los jugadores independientemente del tamaño de la lista.
-Justificación:
-Merge Sort fue seleccionado porque tiene un rendimiento consistente, sin importar si la lista ya está ordenada o completamente desordenada. Además, es un algoritmo estable, lo que significa que si dos jugadores tienen el mismo ELO, se mantendrá el orden en que fueron registrados inicialmente. Esto puede ser útil en situaciones donde jugadores tienen habilidades similares.
-Este algoritmo ha demostrado ser una buena elección para este proyecto, ya que asegura que la ordenación de los jugadores por ELO sea rápida y eficiente, ayudando a que el programa funcione de manera fluida incluso con listas grandes.
+---
+
+## Desarrollo de competencias
+
+### SICT0301: Evalúa los componentes
+
+**Análisis de complejidad de algoritmos de ordenamiento**:
+
+- Se realizó un análisis de la complejidad del algoritmo **Merge Sort**, considerando los casos mejor, peor y promedio. El algoritmo tiene una complejidad de **O(n log n)** en todos los casos, lo que lo hace eficiente para ordenar listas grandes de jugadores.
+
+**Análisis de complejidad de estructuras de datos**:
+
+- Se analizó la complejidad de las operaciones en el árbol binario de búsqueda (BST) que se utilizó para gestionar la búsqueda de jugadores por ELO. La inserción y búsqueda en un árbol equilibrado tienen complejidades promedio de **O(log n)**.
+
+### SICT0302: Toma decisiones
+
+**Selección de algoritmo de ordenamiento**:
+
+- Se eligió **Merge Sort** por su eficiencia y estabilidad. Se consideraron otros algoritmos, pero **Merge Sort** garantizó un rendimiento consistente incluso en listas grandes y desordenadas.
+
+**Selección de estructura de datos**:
+
+- Se implementó un árbol binario de búsqueda (BST) para gestionar eficientemente los jugadores. Esta elección se justificó por la necesidad de realizar búsquedas rápidas por ELO, permitiendo una experiencia más dinámica al usuario.
+
+### SICT0303: Implementa acciones científicas
+
+**Consulta de información de las estructuras**:
+
+- Se implementaron mecanismos que permiten consultar la información de los jugadores de forma eficiente utilizando el BST.
+
+**Carga de datos a las estructuras**:
+
+- Aunque en este avance no se cargan datos desde archivos, se ha estructurado el código para que sea fácil integrar esa funcionalidad en el futuro, si se desea.
