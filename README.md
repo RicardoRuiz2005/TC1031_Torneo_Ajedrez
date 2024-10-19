@@ -32,7 +32,7 @@ El programa no requiere archivos externos para las entradas. Se inicializa con u
 
 Ejemplo de jugadores predefinidos:
 
-text
+yaml
 Copiar código
 1. Magnus Carlsen, ELO: 2852
 2. Ian Nepomniachtchi, ELO: 2793
@@ -62,10 +62,4 @@ Ordenamiento de jugadores (Merge Sort): La ordenación tiene una complejidad O(n
 Este análisis demuestra que se ha evaluado correctamente la complejidad de los algoritmos implementados en el programa.
 
 SICT0302: Toma decisiones
-Se eligió el algoritmo Merge Sort para ordenar los jugadores por ELO debido a su eficiencia y estabilidad. Merge Sort garantiza una complejidad O(n log n) en todos los casos, lo que lo hace ideal para ordenar los jugadores independientemente del tamaño de la lista.
-
-Justificación:
-
-Merge Sort se seleccionó porque siempre tiene un rendimiento consistente, sin importar si la lista ya está parcialmente ordenada o desordenada.
-Además, es un algoritmo estable, lo que significa que los jugadores con el mismo ELO mantendrán su orden relativo de inserción, lo cual puede ser útil si se registran jugadores con el mismo nivel de habilidad.
-Al usar este algoritmo correctamente en el contexto del problema, se ha demostrado una toma de decisiones basada en la necesidad de eficiencia y estabilidad en la ordenación de datos.
+Se eligió el algoritmo Merge Sort para ordenar los jugadores por ELO debido a su eficiencia y estabilidad. Merge Sort garantiza una complejidad O(n log n) en todos los casos, lo que lo hace ideal para ordenar los jugadores independientemente del tamaño de
