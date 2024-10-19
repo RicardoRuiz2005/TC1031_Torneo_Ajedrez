@@ -1,84 +1,65 @@
-**Proyecto: Torneo de Ajedrez - Ordenamiento por ELO**
+Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
+Este proyecto simula un torneo de ajedrez donde los jugadores son registrados con sus nombres y valores de ELO, lo que refleja su nivel de habilidad en el juego. Los jugadores se ordenan de mayor a menor según su ELO usando el algoritmo Merge Sort. El objetivo es organizar a los jugadores de manera eficiente y simular sus enfrentamientos, mostrando cómo varía su ELO después de cada partida.
 
+Descripción del avance 1
+En este primer avance del proyecto, se implementan las funcionalidades principales del programa:
 
-**Descripción del Programa:**
+Registro de jugadores con sus nombres y valores de ELO.
+Visualización de la lista de jugadores con sus ELOs.
+Ordenamiento de los jugadores usando Merge Sort, ordenando de mayor a menor ELO.
+Simulación de un torneo, donde se enfrentan los jugadores y sus ELOs se actualizan en función de los resultados de los partidos.
+Al finalizar, se muestra la lista de jugadores ordenados por su ELO actualizado tras el torneo.
+Instrucciones para compilar el avance de proyecto
+Para compilar el programa, ejecuta el siguiente comando en la terminal:
 
-Este proyecto simula un torneo de ajedrez donde los jugadores se ordenan por su valor de ELO utilizando un algoritmo recursivo. Cada jugador tiene un valor de ELO que representa su nivel de habilidad. El objetivo es registrar a los jugadores, ordenar los valores de ELO de mayor a menor y mostrar los resultados.
+bash
+Copiar código
+g++ mainAjedrez.cpp -o mainAjedrez
+Instrucciones para ejecutar el avance de proyecto
+Después de compilar, ejecuta el programa con este comando:
 
+bash
+Copiar código
+./mainAjedrez
+Descripción de las entradas del avance de proyecto
+El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero también permite agregar nuevos jugadores durante la ejecución.
 
-**Funcionalidad:**
+Ejemplo de jugadores predefinidos:
 
-># Torneo de Ajedrez
->
->Este programa simula un torneo de ajedrez y ordena a los jugadores por su ELO.
->
->## Funciones
->
->1. **Ver jugadores**: Muestra una lista de jugadores y sus ELOs.
->   
->2. **Ordenar jugadores**: Ordena a los jugadores por ELO (de mayor a menor) usando **Merge Sort**.
->
->3. **Agregar jugador**: Permite ingresar el nombre y el ELO de un nuevo jugador.
->
->4. **Salir**: Cierra el programa.
+text
+Copiar código
+1. Magnus Carlsen, ELO: 2852
+2. Ian Nepomniachtchi, ELO: 2793
+3. Ding Liren, ELO: 2811
+4. Fabiano Caruana, ELO: 2786
+5. Anish Giri, ELO: 2779
+El usuario puede agregar jugadores adicionales proporcionando el nombre y el ELO en el programa.
 
+Descripción de las salidas del avance de proyecto
+Al ejecutar el programa, obtendrás los siguientes resultados:
 
-**Registro de Jugadores:**
+Lista de jugadores antes del torneo: Se imprime la lista de jugadores con sus nombres y ELO en el orden en que fueron registrados.
 
-Los jugadores se registran con su nombre y su valor de ELO. Estos valores se almacenan en vectores.
+Resultados del torneo: El programa simula los enfrentamientos entre los jugadores, mostrando quién ganó o si hubo un empate. Luego, actualiza los ELOs de los jugadores en función de los resultados.
 
+Lista de jugadores después del torneo: Una vez que el torneo ha concluido, se imprime la lista de jugadores ordenada por su ELO de mayor a menor.
 
-**Ordenamiento por ELO (Merge Sort):**
+Desarrollo de competencias
+SICT0301: Evalúa los componentes
+En este avance, se realizó un análisis de la complejidad de los componentes clave del programa. El algoritmo principal, Merge Sort, tiene una complejidad de O(n log n), lo que es eficiente para ordenar listas grandes de jugadores.
 
+Análisis de complejidad:
 
-El programa utiliza el algoritmo Merge Sort para ordenar los jugadores de manera eficiente según su ELO. Merge Sort es un algoritmo con una complejidad de (nlogn), lo que lo hace ideal para este tipo de ordenamientos.
+Inserción de jugadores en el vector: La inserción de jugadores tiene una complejidad O(1) amortiguada. El redimensionamiento del vector en caso de que se quede sin espacio puede ser O(n), pero eso ocurre de forma ocasional.
+Búsqueda e impresión de jugadores: Se recorre la lista de jugadores para mostrarlos, lo que tiene una complejidad O(n).
+Ordenamiento de jugadores (Merge Sort): La ordenación tiene una complejidad O(n log n), garantizando un rendimiento eficiente para listas grandes de jugadores.
+Este análisis demuestra que se ha evaluado correctamente la complejidad de los algoritmos implementados en el programa.
 
+SICT0302: Toma decisiones
+Se eligió el algoritmo Merge Sort para ordenar los jugadores por ELO debido a su eficiencia y estabilidad. Merge Sort garantiza una complejidad O(n log n) en todos los casos, lo que lo hace ideal para ordenar los jugadores independientemente del tamaño de la lista.
 
-**Impresión de Resultados:**
+Justificación:
 
-El programa permite imprimir la lista de jugadores y sus valores de ELO antes y después de ordenar.
-
-
-**Componentes Principales:**
-
-
-Registro de Jugadores: El programa permite registrar jugadores y sus ELOs. Estos datos se almacenan en dos vectores, uno para los nombres y otro para los ELOs.
-
-**Ordenamiento por Merge Sort:**
-
-
-Este algoritmo recursivo divide la lista de jugadores en dos partes, las ordena de forma recursiva y luego combina las listas ordenadas. Esto garantiza que los jugadores se ordenen de manera eficiente por su ELO.
-
-
-
-**Imprimir Jugadores:**
-
-Esta función muestra los nombres de los jugadores junto con sus valores de ELO, lo que permite verificar el estado antes y después del torneo.
-
-
-**Estructura del Código:**
-
-
-Lista de Jugadores: Se usa un vector para los nombres y otro para los ELOs.
-
-
-**Merge Sort:**
-
-El algoritmo se encarga de ordenar los jugadores según su valor de ELO, de mayor a menor.
-
-
-**Imprimir Resultados:**
-
-
-Al finalizar el ordenamiento, el programa imprime los resultados del torneo, mostrando los jugadores en orden descendente de acuerdo con su ELO.
-
-**Análisis de Complejidad:**
-
-
-Inserción de Jugadores: O(1) para agregar un jugador al final del vector.
-
-Búsqueda de Jugadores: O(n) al recorrer la lista para imprimir los jugadores.
-
-Ordenamiento por ELO (Merge Sort): O(n log n) ya que divide los jugadores en mitades y los ordena recursivamente.
-
-Este proyecto permite simular un torneo en el que los jugadores se ordenan por su habilidad en base a su ELO, lo que lo hace una herramienta educativa para entender cómo funciona el ordenamiento de datos en C++ utilizando estructuras básicas como vectores y algoritmos eficientes como Merge Sort.
+Merge Sort se seleccionó porque siempre tiene un rendimiento consistente, sin importar si la lista ya está parcialmente ordenada o desordenada.
+Además, es un algoritmo estable, lo que significa que los jugadores con el mismo ELO mantendrán su orden relativo de inserción, lo cual puede ser útil si se registran jugadores con el mismo nivel de habilidad.
+Al usar este algoritmo correctamente en el contexto del problema, se ha demostrado una toma de decisiones basada en la necesidad de eficiencia y estabilidad en la ordenación de datos.
