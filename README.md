@@ -1,6 +1,7 @@
 # Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
 
 Por: Ricardo Ruiz Cano    A1707233
+
 Este proyecto simula un torneo de ajedrez donde los jugadores son registrados con sus nombres y valores de ELO, lo que refleja su nivel de habilidad en el juego. Los jugadores se ordenan de mayor a menor según su ELO usando el algoritmo **Merge Sort**. El objetivo es organizar a los jugadores de manera eficiente y simular sus enfrentamientos, mostrando cómo varía su ELO después de cada partida.
 
 ---
