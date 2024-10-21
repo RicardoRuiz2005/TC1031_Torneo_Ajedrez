@@ -47,7 +47,7 @@ En este segundo avance, realice algunas mejoras significativas en la funcionalid
 
 ## Descripción de las entradas del avance de proyecto
 
-El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero también permite agregar nuevos jugadores durante la ejecución. El proyecto solo usa el main (mainAjedrez.cpp
+El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero también permite agregar nuevos jugadores durante la ejecución. El proyecto solo usa el main (mainAjedrez.cpp) y un archivo .h (torneo.h).
 
 **Ejemplo de jugadores predefinidos**:
 
@@ -61,10 +61,10 @@ El programa no requiere archivos externos para las entradas. Se inicializa con u
 
 ## Descripción de las salidas del avance de proyecto
 
-Al ejecutar el programa, obtendrás los siguientes resultados:
+Al ejecutar el programa, se obtendran los siguientes resultados:
 
 1. **Lista de jugadores antes del torneo**: Se imprime la lista de jugadores con sus nombres y ELO en el orden en que fueron registrados.
-2. **Resultados del torneo**: El programa simula los enfrentamientos entre los jugadores, mostrando quién ganó o si hubo un empate. Luego, actualiza los ELOs de los jugadores en función de los resultados.
+2. **Resultados del torneo**: El programa simula los partidos entre los jugadores, mostrando quién ganó o si hubo un empate. Luego, actualiza los ELOs de los jugadores en función de los resultados.
 3. **Lista de jugadores después del torneo**: Una vez que el torneo ha concluido, se imprime la lista de jugadores ordenada por su ELO de mayor a menor.
 
 ---
@@ -75,28 +75,28 @@ Al ejecutar el programa, obtendrás los siguientes resultados:
 
 **Análisis de complejidad de algoritmos de ordenamiento**:
 
-- Se realizó un análisis de la complejidad del algoritmo **Merge Sort**, considerando los casos mejor, peor y promedio. El algoritmo tiene una complejidad de **O(n log n)** en todos los casos, lo que lo hace eficiente para ordenar listas grandes de jugadores.
+- Durante la elaboración del programa, realice un análisis de la complejidad del algoritmo **Merge Sort**, considerando los casos mejor, peor y promedio. El algoritmo tiene una complejidad de **O(n log n)** en todos los casos, lo que lo hace eficiente para ordenar listas grandes de jugadores.
 
 **Análisis de complejidad de estructuras de datos**:
 
-- Se analizó la complejidad de las operaciones en el árbol binario de búsqueda (BST) que se utilizó para gestionar la búsqueda de jugadores por ELO. La inserción y búsqueda en un árbol equilibrado tienen complejidades promedio de **O(log n)**.
+- Se analizó la complejidad de las operaciones en el árbol binario de búsqueda (BST) que se esta usando para la búsqueda de jugadores por ELO. La inserción y búsqueda en un árbol equilibrado tienen complejidades promedio de **O(log n)**.
 
 ### SICT0302: Toma decisiones
 
 **Selección de algoritmo de ordenamiento**:
 
-- Se eligió **Merge Sort** por su eficiencia y estabilidad. Se consideraron otros algoritmos, pero **Merge Sort** garantizó un rendimiento consistente incluso en listas grandes y desordenadas.
+- Elegi **Merge Sort** por su eficiencia y estabilidad. Se consideraron otros algoritmos, pero **Merge Sort** garantizó un rendimiento consistente incluso en listas grandes y desordenadas.
 
 **Selección de estructura de datos**:
 
-- Se implementó un árbol binario de búsqueda (BST) para gestionar eficientemente los jugadores. Esta elección se justificó por la necesidad de realizar búsquedas rápidas por ELO, permitiendo una experiencia más dinámica al usuario.
+- Se implementó un árbol binario de búsqueda (BST) para gestionar eficientemente los jugadores. Esta elección se justifica por la necesidad de realizar búsquedas rápidas por ELO, permitiendo una experiencia más eficaz al usuario.
 
 ### SICT0303: Implementa acciones científicas
 
 **Consulta de información de las estructuras**:
 
-- Se implementaron mecanismos que permiten consultar la información de los jugadores de forma eficiente utilizando el BST.
+- Implemente algunos mecanismos que permiten consultar la información de los jugadores de forma eficiente utilizando el BST.
 
 **Carga de datos a las estructuras**:
 
-- Aunque en este avance no se cargan datos desde archivos, se ha estructurado el código para que sea fácil integrar esa funcionalidad en el futuro, si se desea.
+- Aunque en este avance no cargué datos desde archivos, organicé el código de manera que sea fácil incluir esa funcionalidad en el futuro, si es necesario o requerido.
