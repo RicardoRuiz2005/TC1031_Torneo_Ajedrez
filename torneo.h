@@ -1,89 +1,170 @@
+//Proyecto integrador, torneo de Ajedrez
+//Ricardo Ruiz Cano     A01707233
+
+
 #ifndef TORNEO_H
 #define TORNEO_H
 
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
 
 using namespace std;
 
-// Funcion para imprimir la lista de los jugadores y su respectivo ELO
-void imprimirJugadores(const vector<string>& nombres, const vector<int>& elos) {
-    for (size_t i = 0; i < nombres.size(); i++) {
-        cout << "Nombre: " << nombres[i] << ", ELO: " << elos[i] << endl;
+// Clase Jugador para encapsular nombre y ELO
+class Jugador {
+public:
+    string nombre;
+    int elo;
+
+    // Creo un constructor para inicializar un jugador
+    Jugador(const string& nombre, int elo) : nombre(nombre), elo(elo) {}
+
+    // Muestro la información del jugador
+    void mostrar() const {
+        cout << "Nombre: " << nombre << ", ELO: " << elo << endl;
     }
-}
+};
 
-/*
-Para ordenar los jugadores de ajedrez por su ELO, 
-utilicé Merge Sort porque es un algoritmo que organiza los datos 
-dividiendo la lista en partes más pequeñas. Primero, el algoritmo separa a los jugadores 
-en grupos hasta que cada grupo tiene un solo jugador. Luego, esos grupos se van juntando 
-de nuevo, pero esta vez en orden, comparando los ELOs de cada jugador. Me gustó usar Merge Sort 
-porque es eficiente y siempre ordena correctamente, incluso cuando la lista está muy desordenada.
-*/
+// Clase Nodo para el árbol BST
+class Nodo {
+public:
+    Jugador jugador;
+    Nodo* izquierda;
+    Nodo* derecha;
 
-// Funcion recursiva que mezcla y ordena (merge sort)
-void merge(vector<string>& nombres, vector<int>& elos, int izquierda, int mid, int derecha) {
-    int n1 = mid - izquierda + 1;
-    int n2 = derecha - mid;
+    // Inicializo el nodo con el jugador, apuntadores a NULL
+    Nodo(Jugador j) : jugador(j), izquierda(NULL), derecha(NULL) {}
+};
 
-    // Creo vectores temporales para pasar el ordenamiento de datos
-    vector<string> L_nombres(n1), R_nombres(n2);
-    vector<int> L_elos(n1), R_elos(n2);
+// Clase BST para gestionar los jugadores por ELO
+class ArbolBST {
+private:
+    Nodo* raiz;
 
-    // Copio datos a los vectores temporales
-    for (int i = 0; i < n1; i++) {
-        L_nombres[i] = nombres[izquierda + i];
-        L_elos[i] = elos[izquierda + i];
-    }
-    for (int i = 0; i < n2; i++) {
-        R_nombres[i] = nombres[mid + 1 + i];
-        R_elos[i] = elos[mid + 1 + i];
-    }
-
-    // Mezcla los vectores temporales de vuelta a los vectores originales
-    int i = 0, j = 0, k = izquierda;
-    while (i < n1 && j < n2) {
-        if (L_elos[i] >= R_elos[j]) { // Ordenar de mayor a menor los ELOS
-            elos[k] = L_elos[i];
-            nombres[k] = L_nombres[i];
-            i++;
-        } else {
-            elos[k] = R_elos[j];
-            nombres[k] = R_nombres[j];
-            j++;
+    // Inserto un nodo en el árbol BST de forma recursiva
+    Nodo* insertar(Nodo* nodo, Jugador jugador) {
+        if (nodo == NULL) {  // Si el nodo está vacío, lo creo
+            return new Nodo(jugador);
         }
-        k++;
+        // Verifico dónde insertar al comparar el ELO
+        if (jugador.elo < nodo->jugador.elo) {
+            nodo->izquierda = insertar(nodo->izquierda, jugador);
+        } else if (jugador.elo > nodo->jugador.elo) {
+            nodo->derecha = insertar(nodo->derecha, jugador);
+        }
+        return nodo;
     }
 
-    // Copia los elementos restantes
-    while (i < n1) {
-        elos[k] = L_elos[i];
-        nombres[k] = L_nombres[i];
-        i++;
-        k++;
+    // Busco un jugador por su ELO de forma recursiva
+    Jugador* buscar(Nodo* nodo, int elo) {
+        if (nodo == NULL) {  // Si no encuentro el nodo, regreso NULL
+            return NULL;
+        }
+        // Verifico si el ELO coincide o hacia dónde buscar
+        if (elo == nodo->jugador.elo) {
+            return &nodo->jugador;
+        } else if (elo < nodo->jugador.elo) {
+            return buscar(nodo->izquierda, elo);
+        } else {
+            return buscar(nodo->derecha, elo);
+        }
     }
-    while (j < n2) {
-        elos[k] = R_elos[j];
-        nombres[k] = R_nombres[j];
-        j++;
-        k++;
+
+public:
+    ArbolBST() : raiz(NULL) {}  // Inicializo la raíz en NULL
+
+    // Inserto un jugador en el árbol llamando a la función recursiva
+    void insertarJugador(Jugador jugador) {
+        raiz = insertar(raiz, jugador);
+    }
+
+    // Busco un jugador por su ELO llamando a la función recursiva
+    Jugador* buscarJugadorPorELO(int elo) {
+        return buscar(raiz, elo);
+    }
+
+    // Imprimo los jugadores en orden (recorro el árbol en inorden)
+    void imprimirEnOrden(Nodo* nodo) {
+        if (nodo != NULL) {  // Si el nodo no es NULL, continuo imprimiendo
+            imprimirEnOrden(nodo->izquierda);
+            nodo->jugador.mostrar();
+            imprimirEnOrden(nodo->derecha);
+        }
+    }
+
+    // Imprimo todos los jugadores desde la raíz del árbol
+    void imprimirJugadores() {
+        imprimirEnOrden(raiz);
+    }
+};
+
+// Imprimo los jugadores desde el vector
+void imprimirJugadores(const vector<Jugador>& jugadores) {
+    for (size_t i = 0; i < jugadores.size(); ++i) {
+        jugadores[i].mostrar();
     }
 }
 
-// Función recursiva para dividir el vector y llamar a merge (merge sort)
-void ordenarELO(vector<string>& nombres, vector<int>& elos, int izquierda, int derecha) {
-    if (izquierda < derecha) {
-        int mid = izquierda + (derecha - izquierda) / 2;
+// Calculo la probabilidad de ganar basado en los ELOs
+double calcularProbabilidad(int eloA, int eloB) {
+    return 1.0 / (1.0 + pow(10.0, (eloB - eloA) / 400.0));
+}
 
-        // Divido el vector en dos mitades
-        ordenarELO(nombres, elos, izquierda, mid);
-        ordenarELO(nombres, elos, mid + 1, derecha);
+// Comparo los ELOs de dos jugadores para el ordenamiento
+bool compararELO(const Jugador& a, const Jugador& b) {
+    return a.elo > b.elo;
+}
 
-        // Mezclo las dos mitades
-        merge(nombres, elos, izquierda, mid, derecha);
+// Ordeno los jugadores por ELO usando sort
+void ordenarELO(vector<Jugador>& jugadores) {
+    sort(jugadores.begin(), jugadores.end(), compararELO);
+}
+
+// Simulación del torneo
+void simularTorneo(vector<Jugador>& jugadores) {
+    const int K = 32;  // Constante de ajuste para el cálculo del nuevo ELO
+    int contadorPartido = 1;
+
+    // Simulo las partidas entre los jugadores
+    for (size_t i = 0; i < jugadores.size(); ++i) {
+        for (size_t j = i + 1; j < jugadores.size(); ++j) {
+            double probA = calcularProbabilidad(jugadores[i].elo, jugadores[j].elo);
+            double probB = calcularProbabilidad(jugadores[j].elo, jugadores[i].elo);
+
+            int eloAntesA = jugadores[i].elo;
+            int eloAntesB = jugadores[j].elo;
+
+            // Genero un valor aleatorio para determinar el resultado
+            double randomValue = static_cast<double>(rand()) / RAND_MAX;
+            double resultado;
+
+            // Verifico quién gana basado en el valor aleatorio y las probabilidades
+            if (randomValue < probA) {
+                resultado = 1;
+                cout << jugadores[i].nombre << " gana contra " << jugadores[j].nombre << endl;
+            } else if (randomValue < (probA + probB) / 10 && abs(jugadores[i].elo - jugadores[j].elo) < 100) {
+                resultado = 0.5;
+                cout << jugadores[i].nombre << " empata con " << jugadores[j].nombre << endl;
+            } else {
+                resultado = 0;
+                cout << jugadores[j].nombre << " gana contra " << jugadores[i].nombre << endl;
+            }
+
+            // Actualizo los ELOs de ambos jugadores
+            jugadores[i].elo += K * (resultado - probA);
+            jugadores[j].elo += K * ((1 - resultado) - probB);
+
+            cout << jugadores[i].nombre << " ELO: " << eloAntesA << " -> " << jugadores[i].elo << endl;
+            cout << jugadores[j].nombre << " ELO: " << eloAntesB << " -> " << jugadores[j].elo << endl;
+            cout << "======================================\n" << endl;
+        }
     }
+
+    ordenarELO(jugadores);  // Ordeno a los jugadores por su nuevo ELO
 }
 
 #endif
