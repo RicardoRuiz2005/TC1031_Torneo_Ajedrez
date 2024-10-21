@@ -1,12 +1,13 @@
 # Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
 
+Por: Ricardo Ruiz Cano    A1707233
 Este proyecto simula un torneo de ajedrez donde los jugadores son registrados con sus nombres y valores de ELO, lo que refleja su nivel de habilidad en el juego. Los jugadores se ordenan de mayor a menor según su ELO usando el algoritmo **Merge Sort**. El objetivo es organizar a los jugadores de manera eficiente y simular sus enfrentamientos, mostrando cómo varía su ELO después de cada partida.
 
 ---
 
 ## Descripción del avance 1
 
-En este primer avance del proyecto, se implementan las funcionalidades principales del programa:
+En este primer avance del proyecto, implemente las funcionalidades principales del programa:
 
 - Registro de jugadores con sus nombres y valores de ELO.
 - Visualización de la lista de jugadores con sus ELOs.
@@ -18,25 +19,25 @@ En este primer avance del proyecto, se implementan las funcionalidades principal
 
 ## Descripción del avance 2
 
-En este segundo avance, se han realizado mejoras significativas en la funcionalidad del programa:
+En este segundo avance, realice algunas mejoras significativas en la funcionalidad del programa:
 
 ### Cambios Realizados:
 
 1. **Unificación de Datos en una Clase**:
-   - **Cambio**: Se consolidó la información de los jugadores (nombre y ELO) en una única clase `Jugador`.
-   - **Razón del cambio**: Esto mejora la organización del código y permite un manejo más eficiente de los datos de los jugadores, haciendo que el código sea más limpio y formal.
+   - **Cambio**: Junte la información de los jugadores (nombre y ELO) en una única clase `Jugador`.
+   - **Razón del cambio**: Esto mejora la organización del código y permite un manejo más eficiente de los datos de los jugadores, haciendo que el código sea más limpio y formal, a su vez evita alguna falla en el codigo a futuro (esto gracias a la observación hecha en clase).
 
 2. **Reestructuración de la Salida**:
-   - **Cambio**: Se mejoró la presentación de los resultados al mostrar la lista de jugadores después del torneo, incluyendo su posición en la lista.
+   - **Cambio**: Mejore la presentación de los resultados al mostrar la lista de jugadores después del torneo, incluyendo su posición en la lista.
    - **Razón del cambio**: Esto hace que los resultados sean más fáciles de leer y comprender para el usuario, añadiendo claridad a la interfaz del programa.
 
 3. **Mejora en la Simulación del Torneo**:
-   - **Cambio**: Se optimizó la forma en que se simulan las partidas y se ajustan los ELOs, haciéndolo más representativo de la competencia real.
-   - **Razón del cambio**: Esto proporciona una experiencia más realista y educativa, al reflejar de mejor manera cómo funciona el sistema de ELO en el ajedrez.
+   - **Cambio**: Se mejoro la forma en que se simulan las partidas y se ajustan los ELOs, haciéndolo más representativo de la competencia real.
+   - **Razón del cambio**: Esto proporciona una experiencia más realista, al reflejar de mejor manera cómo funciona el sistema de ELO en el ajedrez.
 
 4. **Cambios en el Texto y la Documentación**:
-   - **Cambio**: El texto del README se modificó para incluir una descripción más clara y detallada de las funcionalidades y los avances del proyecto.
-   - **Razón del cambio**: El texto cambió drásticamente para hacer la documentación más formal y accesible, facilitando la comprensión del proyecto.
+   - **Cambio**: El texto del README lo he modificado para incluir una descripción más clara y detallada de las funcionalidades y los avances del proyecto.
+   - **Razón del cambio**: El texto cambió drásticamente para hacer la documentación más formal y accesible, facilitando la comprensión del proyecto (casi iniciandolo el readme desde el principio para aclarar mejor las ideas).
 
 5. **Implementación de Búsqueda por ELO**:
    - **Cambio**: Se añadió la opción de buscar jugadores por su ELO usando un árbol binario de búsqueda (BST).
@@ -46,7 +47,7 @@ En este segundo avance, se han realizado mejoras significativas en la funcionali
 
 ## Descripción de las entradas del avance de proyecto
 
-El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero también permite agregar nuevos jugadores durante la ejecución.
+El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero también permite agregar nuevos jugadores durante la ejecución. El proyecto solo usa el main (mainAjedrez.cpp
 
 **Ejemplo de jugadores predefinidos**:
 
