@@ -1,85 +1,117 @@
+//Proyecto integrador, torneo de Ajedrez
+//Ricardo Ruiz Cano     A01707233
+
 #include <iostream>
 #include <vector>
+#include <ctime>  // Uso srand y rand para la inicialización de números aleatorios
 #include "torneo.h"
 
 using namespace std;
 
 int main() {
-    int opcion_1, opcion_2;
-    bool bucle_1 = false, bucle_2 = false;
+    srand(time(0));  // Inicializo los números aleatorios
 
-    cout << "Bienvenido al dojo de Ajedrez" << endl;
+    vector<Jugador> jugadores;
+    // Agrego los jugadores con sus ELOs
+    jugadores.push_back(Jugador("Magnus Carlsen", 2852));
+    jugadores.push_back(Jugador("Ian Nepomniachtchi", 2793));
+    jugadores.push_back(Jugador("Ding Liren", 2811));
+    jugadores.push_back(Jugador("Fabiano Caruana", 2786));
+    jugadores.push_back(Jugador("Anish Giri", 2779));
+    jugadores.push_back(Jugador("Levon Aronian", 2775));
+    jugadores.push_back(Jugador("Hikaru Nakamura", 2768));
+    jugadores.push_back(Jugador("Wesley So", 2766));
+    jugadores.push_back(Jugador("Maxime Vachier-Lagrave", 2764));
+    jugadores.push_back(Jugador("Shakhriyar Mamedyarov", 2763));
+    jugadores.push_back(Jugador("Teimour Radjabov", 2765));
+    jugadores.push_back(Jugador("Sergey Karjakin", 2758));
+    jugadores.push_back(Jugador("Vladimir Kramnik", 2753));
+    jugadores.push_back(Jugador("Veselin Topalov", 2750));
+    jugadores.push_back(Jugador("Viswanathan Anand", 2749));
 
-    vector<string> nombres;
-    nombres.push_back("Magnus Carlsen");
-    nombres.push_back("Ian Nepomniachtchi");
-    nombres.push_back("Ding Liren");
-    nombres.push_back("Fabiano Caruana");
-    nombres.push_back("Anish Giri");
-    nombres.push_back("Levon Aronian");
-    nombres.push_back("Hikaru Nakamura");
-    nombres.push_back("Wesley So");
-    nombres.push_back("Maxime Vachier-Lagrave");
-    nombres.push_back("Shakhriyar Mamedyarov");
-    nombres.push_back("Teimour Radjabov");
-    nombres.push_back("Sergey Karjakin");
-    nombres.push_back("Vladimir Kramnik");
-    nombres.push_back("Veselin Topalov");
-    nombres.push_back("Viswanathan Anand");
+    ArbolBST arbolJugadores;
 
-    vector<int> elos;
-    elos.push_back(2852);
-    elos.push_back(2793);
-    elos.push_back(2811);
-    elos.push_back(2786);
-    elos.push_back(2779);
-    elos.push_back(2775);
-    elos.push_back(2768);
-    elos.push_back(2766);
-    elos.push_back(2764);
-    elos.push_back(2763);
-    elos.push_back(2765);
-    elos.push_back(2758);
-    elos.push_back(2753);
-    elos.push_back(2750);
-    elos.push_back(2749);
+    // Uso un bucle tradicional para insertar cada jugador en el árbol
+    for (size_t i = 0; i < jugadores.size(); ++i) {
+        arbolJugadores.insertarJugador(jugadores[i]);  // Inserto cada jugador en el árbol
+    }
 
-    while (bucle_1 == false) {
-        cout << "Escoge tu destino: \n1. Ver jugadores \n2. Hacer torneo \n3. Agregar jugador \n4. Salir del dojo" << endl;
+    int opcion_1;
+    bool bucle_1 = false;
+
+    cout << "------------------------------------------" << endl;
+    cout << "          Bienvenido al dojo de Ajedrez   " << endl;
+    cout << "------------------------------------------" << endl;
+
+    while (!bucle_1) {
+        // Menú principal con las opciones
+        cout << "\nEscoge tu destino: \n" 
+             << "1. Ver jugadores \n"
+             << "2. Hacer torneo \n"
+             << "3. Agregar jugador \n"
+             << "4. Buscar jugador por ELO \n"  // Nueva opción para buscar
+             << "5. Salir del dojo" << endl;
+        cout << "\nIngresa opcion: ";  // Pido la opción al usuario
         cin >> opcion_1;
+        cout << endl;  // Añadir salto de línea para espaciar la salida siguiente
 
         if (opcion_1 == 1) {
-            cout << "Lista de jugadores y su ELO antes del torneo:\n"<<endl;
-            imprimirJugadores(nombres, elos);
-            
-        } else if (opcion_1 == 2) {
-            cout << "\nIniciando el torneo...\n";
-            ordenarELO(nombres, elos, 0, nombres.size() - 1);
+            // Imprimo la lista de jugadores antes del torneo
+            cout << "Lista de jugadores y su ELO antes del torneo:\n" << endl;
+            imprimirJugadores(jugadores);
 
+        } else if (opcion_1 == 2) {
+            // Inicio la simulación del torneo
+            cout << "\nIniciando el torneo...\n";
+            simularTorneo(jugadores);  // Simulo el torneo y muestro los resultados
+
+            // Muestro la lista ordenada con la posición después del torneo
             cout << "\nLista de jugadores y su ELO después del torneo (ordenada):\n";
-            imprimirJugadores(nombres, elos);
-            
+            for (size_t i = 0; i < jugadores.size(); ++i) {
+                cout << (i + 1) << "- " << jugadores[i].nombre << " - ELO: " << jugadores[i].elo << endl;
+            }
+
         } else if (opcion_1 == 3) {
             string nuevo_nombre;
             int nuevo_elo;
+
+            // Pido los datos para agregar un nuevo jugador
             cout << "Ingresa el nombre del nuevo jugador: ";
-            cin.ignore();  // el "ignore" ignorar el salto de línea pendiente
-            getline(cin, nuevo_nombre);  // Uso getline para capturar nombres completos con espacios
+            cin.ignore();
+            getline(cin, nuevo_nombre);
             cout << "Ingresa el ELO del nuevo jugador: ";
             cin >> nuevo_elo;
 
-            // Con esta opcion podemos agregar un nuevo jugador y su ELO a las listas
-            nombres.push_back(nuevo_nombre);
-            elos.push_back(nuevo_elo);
+            jugadores.push_back(Jugador(nuevo_nombre, nuevo_elo));
+            arbolJugadores.insertarJugador(Jugador(nuevo_nombre, nuevo_elo));  // Inserto también en el árbol
+            cout << "\nJugador agregado exitosamente.\n" << endl;
 
-            cout << "Jugador agregado exitosamente.\n" << endl;
         } else if (opcion_1 == 4) {
-            cout << "Saliendo del dojo" << endl;
+            // Busco un jugador por su ELO en el árbol
+            int elo_buscar;
+            cout << "Ingresa el ELO del jugador a buscar: ";
+            cin >> elo_buscar;
+
+            Jugador* encontrado = arbolJugadores.buscarJugadorPorELO(elo_buscar);  // Busco en el árbol
+            if (encontrado) {
+                // Si lo encuentro, muestro los datos del jugador
+                cout << "Jugador encontrado: " << encontrado->nombre << " - ELO: " << encontrado->elo << endl;
+            } else {
+                // Si no lo encuentro, informo al usuario
+                cout << "No se encontro un jugador con ese ELO.\n" << endl;
+            }
+
+        } else if (opcion_1 == 5) {
+            // Salgo del programa
+            cout << "Saliendo del dojo..." << endl;
             bucle_1 = true;
         } else {
-            cout << "La opcion no esta disponible" << endl;
-            cout << "Le invitamos a usar otra opcion. Gracias" << endl;
+            // En caso de una opción no válida
+            cout << "La opción no está disponible. Intenta de nuevo." << endl;
         }
+
+        cout << "\n------------------------------------------" << endl;  // Separador entre las opciones
     }
+
     return 0;
 }
