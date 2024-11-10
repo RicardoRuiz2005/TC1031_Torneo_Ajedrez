@@ -1,103 +1,152 @@
 # Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
 
-Por: Ricardo Ruiz Cano    A1707233
+Por: Ricardo Ruiz Cano    A01707233
 
-Este proyecto simula un torneo de ajedrez donde los jugadores son registrados con sus nombres y valores de ELO, lo que refleja su nivel de habilidad en el juego. Los jugadores se ordenan de mayor a menor según su ELO usando el algoritmo **Merge Sort**. El objetivo es organizar a los jugadores de manera eficiente y simular sus enfrentamientos, mostrando cómo varía su ELO después de cada partida.
+## Overview General del Proyecto
+
+Este proyecto simula un torneo de ajedrez en el cual los jugadores están registrados con sus nombres y valores de ELO, que reflejan su nivel de habilidad en el juego. Los jugadores se organizan de mayor a menor según su ELO utilizando el algoritmo **Merge Sort** y compiten en un torneo simulado, donde se enfrentan y sus ELOs se actualizan en función de los resultados de cada partida.
 
 ---
 
-## Descripción del avance 1
+## Descripción del Avance 1
 
-En este primer avance del proyecto, implemente las funcionalidades principales del programa:
+En el primer avance del proyecto, se implementaron las funcionalidades principales del programa:
 
 - Registro de jugadores con sus nombres y valores de ELO.
 - Visualización de la lista de jugadores con sus ELOs.
-- Ordenamiento de los jugadores usando **Merge Sort**, ordenando de mayor a menor ELO.
-- Simulación de un torneo, donde se enfrentan los jugadores y sus ELOs se actualizan en función de los resultados de los partidos.
-- Al finalizar, se muestra la lista de jugadores ordenados por su ELO actualizado tras el torneo.
+- Ordenamiento de los jugadores usando **Merge Sort** para organizar de mayor a menor ELO.
+- Simulación de un torneo, donde los jugadores se enfrentan y sus ELOs se ajustan según los resultados de cada partida.
+- Se muestra la lista de jugadores ordenados por ELO después del torneo.
 
 ---
 
-## Descripción del avance 2
+## Descripción del Avance 2
 
-En este segundo avance, realice algunas mejoras significativas en la funcionalidad del programa:
+En el segundo avance, se realizaron mejoras significativas en la funcionalidad del programa.
 
-### Cambios Realizados:
+### Cambios sobre el Primer Avance
 
 1. **Unificación de Datos en una Clase**:
-   - **Cambio**: Junte la información de los jugadores (nombre y ELO) en una única clase `Jugador`.
-   - **Razón del cambio**: Esto mejora la organización del código y permite un manejo más eficiente de los datos de los jugadores, haciendo que el código sea más limpio y formal, a su vez evita alguna falla en el codigo a futuro (esto gracias a la observación hecha en clase).
+   - **Cambio**: La información de los jugadores (nombre y ELO) se integró en una única clase `Jugador`.
+   - **Razón del cambio**: Mejora la organización y el manejo de los datos de los jugadores, haciendo que el código sea más limpio y formal y previniendo posibles fallos.
 
 2. **Reestructuración de la Salida**:
-   - **Cambio**: Mejore la presentación de los resultados al mostrar la lista de jugadores después del torneo, incluyendo su posición en la lista.
-   - **Razón del cambio**: Esto hace que los resultados sean más fáciles de leer y comprender para el usuario, añadiendo claridad a la interfaz del programa.
+   - **Cambio**: Se mejoró la presentación de los resultados al mostrar la lista de jugadores después del torneo, incluyendo su posición en la lista.
+   - **Razón del cambio**: Facilita la lectura y comprensión de los resultados por parte del usuario.
 
 3. **Mejora en la Simulación del Torneo**:
-   - **Cambio**: Se mejoro la forma en que se simulan las partidas y se ajustan los ELOs, haciéndolo más representativo de la competencia real.
-   - **Razón del cambio**: Esto proporciona una experiencia más realista, al reflejar de mejor manera cómo funciona el sistema de ELO en el ajedrez.
+   - **Cambio**: Se optimizó la simulación de partidas y ajuste de ELOs, haciéndolo más representativo de la competencia real.
+   - **Razón del cambio**: Proporciona una experiencia más realista y refleja mejor cómo funciona el sistema de ELO en el ajedrez.
 
-4. **Cambios en el Texto y la Documentación**:
-   - **Cambio**: El texto del README lo he modificado para incluir una descripción más clara y detallada de las funcionalidades y los avances del proyecto.
-   - **Razón del cambio**: El texto cambió drásticamente para hacer la documentación más formal y accesible, facilitando la comprensión del proyecto (casi iniciandolo el readme desde el principio para aclarar mejor las ideas).
+4. **Actualización del README**:
+   - **Cambio**: Se modificó el README para describir más claramente las funcionalidades y avances del proyecto.
+   - **Razón del cambio**: La documentación fue reorganizada para hacerla más formal y accesible.
 
 5. **Implementación de Búsqueda por ELO**:
    - **Cambio**: Se añadió la opción de buscar jugadores por su ELO usando un árbol binario de búsqueda (BST).
-   - **Razón del cambio**: Esto mejora la funcionalidad del programa, permitiendo a los usuarios encontrar jugadores específicos de manera más eficiente.
+   - **Razón del cambio**: Permite a los usuarios encontrar jugadores específicos de manera más eficiente.
 
 ---
 
-## Descripción de las entradas del avance de proyecto
+## Descripción del Avance 3
 
-El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero también permite agregar nuevos jugadores durante la ejecución. El proyecto solo usa el main (mainAjedrez.cpp) y un archivo .h (torneo.h).
+En este avance, se agregaron nuevas funcionalidades y mejoras al programa.
+
+### Cambios sobre el Segundo Avance
+
+1. **Opción para Imprimir en Archivo**:
+   - **Cambio**: Se añadió la opción de imprimir la lista de jugadores en un archivo de texto (`jugadores.txt`).
+   - **Razón del cambio**: Permite a los usuarios conservar una copia de los datos generados durante la ejecución del programa.
+
+2. **Reubicación de la Opción de Salida**:
+   - **Cambio**: La opción de salida del programa fue asignada a la opción 6 en el menú.
+   - **Razón del cambio**: Mejora la organización y claridad del menú de opciones.
+
+---
+
+## Instrucciones para Compilar el Avance de Proyecto
+
+Ejecuta el siguiente comando en la terminal:
+
+    g++ main.cpp -o torneo_ajedrez
+
+## Instrucciones para Ejecutar el Avance de Proyecto
+
+Ejecuta el siguiente comando en la terminal:
+
+    ./torneo_ajedrez
+
+---
+
+## Descripción de las Entradas del Avance de Proyecto
+
+El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero permite agregar nuevos jugadores durante la ejecución. Al agregar un jugador, se solicita:
+
+- **Nombre del jugador**: Una cadena de texto.
+- **ELO del jugador**: Un número entero entre 1 y 4000.
 
 **Ejemplo de jugadores predefinidos**:
 
-- Magnus Carlsen, ELO: 2852  
-- Ian Nepomniachtchi, ELO: 2793  
-- Ding Liren, ELO: 2811  
-- Fabiano Caruana, ELO: 2786  
+- Magnus Carlsen, ELO: 2852
+- Ian Nepomniachtchi, ELO: 2793
+- Ding Liren, ELO: 2811
+- Fabiano Caruana, ELO: 2786
 - Anish Giri, ELO: 2779
 
 ---
 
-## Descripción de las salidas del avance de proyecto
+## Descripción de las Salidas del Avance de Proyecto
 
-Al ejecutar el programa, se obtendran los siguientes resultados:
+El programa genera las siguientes salidas:
 
-1. **Lista de jugadores antes del torneo**: Se imprime la lista de jugadores con sus nombres y ELO en el orden en que fueron registrados.
-2. **Resultados del torneo**: El programa simula los partidos entre los jugadores, mostrando quién ganó o si hubo un empate. Luego, actualiza los ELOs de los jugadores en función de los resultados.
-3. **Lista de jugadores después del torneo**: Una vez que el torneo ha concluido, se imprime la lista de jugadores ordenada por su ELO de mayor a menor.
+1. **Lista de jugadores antes del torneo**: Muestra los jugadores con sus nombres y ELO iniciales.
+
+2. **Resultados del torneo**: Durante la simulación, se muestran los resultados de cada partida y cómo se ajustan los ELOs de los jugadores.
+
+3. **Lista de jugadores después del torneo**: Muestra los jugadores ordenados por su ELO actualizado.
+
+4. **Archivo de jugadores**: Al seleccionar la opción correspondiente, se genera un archivo `jugadores.txt` con la lista de jugadores y sus ELOs.
 
 ---
 
-## Desarrollo de competencias
+## Desarrollo de Competencias
 
-### SICT0301: Evalúa los componentes
+### SICT0301: Evalúa los Componentes
 
-**Análisis de complejidad de algoritmos de ordenamiento**:
+**Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.**
 
-- Durante la elaboración del programa, realice un análisis de la complejidad del algoritmo **Merge Sort**, considerando los casos mejor, peor y promedio. El algoritmo tiene una complejidad de **O(n log n)** en todos los casos, lo que lo hace eficiente para ordenar listas grandes de jugadores.
+He realizado un análisis del algoritmo **Merge Sort** utilizado en el programa. Este algoritmo tiene una complejidad temporal de **O(n log n)** en el mejor, promedio y peor caso. Esto se debe a que siempre divide el conjunto en mitades y requiere recombinar los subarreglos ordenados. Esta eficiencia es crucial para ordenar listas grandes de jugadores de manera rápida y efectiva.
 
-**Análisis de complejidad de estructuras de datos**:
+**Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.**
 
-- Se analizó la complejidad de las operaciones en el árbol binario de búsqueda (BST) que se esta usando para la búsqueda de jugadores por ELO. La inserción y búsqueda en un árbol equilibrado tienen complejidades promedio de **O(log n)**.
+El árbol binario de búsqueda (BST) utilizado para la búsqueda de jugadores por ELO tiene una complejidad promedio de **O(log n)** para operaciones de inserción y búsqueda, asumiendo que el árbol está equilibrado. Esto mejora la eficiencia en comparación con una búsqueda lineal y es esencial para manejar consultas rápidas dentro del programa.
 
-### SICT0302: Toma decisiones
+**Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.**
 
-**Selección de algoritmo de ordenamiento**:
+Las operaciones de simulación de partidas tienen una complejidad de **O(n^2)**, ya que cada jugador se enfrenta a todos los demás. Aunque es menos eficiente para grandes cantidades de jugadores, es aceptable para el tamaño manejado en este proyecto. La complejidad general del programa está dominada por esta sección, pero se mantiene dentro de límites razonables.
 
-- Elegi **Merge Sort** por su eficiencia y estabilidad. Se consideraron otros algoritmos, pero **Merge Sort** garantizó un rendimiento consistente incluso en listas grandes y desordenadas.
+### SICT0302: Toma Decisiones
 
-**Selección de estructura de datos**:
+**Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.**
 
-- Se implementó un árbol binario de búsqueda (BST) para gestionar eficientemente los jugadores. Esta elección se justifica por la necesidad de realizar búsquedas rápidas por ELO, permitiendo una experiencia más eficaz al usuario.
+Elegí **Merge Sort** debido a su eficiencia y estabilidad. A diferencia de otros algoritmos como **Quick Sort**, **Merge Sort** garantiza un tiempo de ejecución consistente y maneja bien listas ya ordenadas o con muchos elementos iguales. Esto es fundamental para mantener la eficiencia al ordenar los ELOs de los jugadores después del torneo.
 
-### SICT0303: Implementa acciones científicas
+**Selecciona una estructura de datos adecuada al problema y la usa correctamente.**
 
-**Consulta de información de las estructuras**:
+Implementé un árbol binario de búsqueda (BST) para gestionar los jugadores por ELO. Esta estructura permite realizar búsquedas eficientes y mantiene los datos organizados, lo cual es esencial para manejar consultas rápidas y eficientes dentro del programa, mejorando la experiencia del usuario.
 
-- Implemente algunos mecanismos que permiten consultar la información de los jugadores de forma eficiente utilizando el BST.
+### SICT0303: Implementa Acciones Científicas
 
-**Carga de datos a las estructuras**:
+**Implementa mecanismos para consultar información de las estructuras correctos.**
 
-- Aunque en este avance no cargué datos desde archivos, organicé el código de manera que sea fácil incluir esa funcionalidad en el futuro, si es necesario o requerido.
+Se desarrollaron métodos para buscar jugadores por ELO en el BST, lo que permite acceder a la información de manera eficiente y demuestra el uso correcto de estructuras de datos avanzadas.
+
+**Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.**
+
+Aunque en este avance no se implementó la lectura de archivos para cargar datos, el código está estructurado para facilitar la inclusión de esta funcionalidad en el futuro. La clase `Jugador` y las estructuras utilizadas pueden adaptarse fácilmente para leer desde archivos.
+
+**Implementa mecanismos de escritura de archivos para guardar los datos de las estructuras de manera correcta.**
+
+Se agregó la funcionalidad de exportar la lista de jugadores a un archivo de texto (`jugadores.txt`). Esto implica manejar operaciones de entrada/salida de archivos y permite que los datos sean accesibles fuera del programa, demostrando la implementación exitosa de acciones científicas en el manejo de archivos.
+
+---
