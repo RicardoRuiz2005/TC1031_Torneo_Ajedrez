@@ -115,17 +115,21 @@ El programa genera las siguientes salidas:
 
 **Análisis de Complejidad de los Algoritmos de Ordenamiento**
 
-El algoritmo de ordenamiento seleccionado para este proyecto es **Merge Sort**. Se eligió **Merge Sort** debido a su complejidad temporal de **O(n log n)** en el mejor, promedio y peor caso. Esta eficiencia se logra dividiendo el conjunto en mitades y recombinando los subarreglos ordenados, lo cual lo hace adecuado incluso para listas grandes. Además, **Merge Sort** es **estable**, lo cual garantiza que el orden relativo de los elementos con valores iguales se mantenga, importante en un contexto como el de los ELOs, donde puede haber valores iguales.
+El algoritmo de ordenamiento seleccionado para este proyecto es **Merge Sort**, una opción adecuada cuando se necesita estabilidad y una complejidad **O(n log n)** en el mejor, promedio y peor caso. **Merge Sort** es un algoritmo de división y conquista que divide la lista en sublistas, las ordena recursivamente y luego las combina. Su estabilidad es clave aquí, ya que mantiene el orden relativo de jugadores con ELO iguales, lo cual es importante en competiciones donde los jugadores pueden tener un rendimiento similar.
+
+**Por qué Merge Sort es adecuado**:  
+A diferencia de otros algoritmos como **Quick Sort**, que tiene un peor caso de **O(n^2)**, **Merge Sort** es consistente y eficiente para listas grandes. Aunque **Quick Sort** puede ser más rápido en promedio, su inestabilidad y posible peor caso lo hacen menos confiable para listas ordenadas o parcialmente ordenadas, como las que se usan en este proyecto.
 
 **Análisis Completo de Complejidad de la Estructura de Datos (BST)**
 
-Para almacenar y buscar jugadores por ELO, se eligió implementar un **árbol binario de búsqueda (BST)**. En un BST balanceado, la complejidad promedio de operaciones de inserción, búsqueda y eliminación es **O(log n)**, lo que proporciona una eficiencia superior en comparación con una búsqueda lineal **O(n)**. Sin embargo, en el peor caso (si el árbol no está equilibrado y se asemeja a una lista enlazada), la complejidad puede degradarse a **O(n)**.
+El proyecto utiliza un **árbol binario de búsqueda (BST)** para almacenar y buscar jugadores por ELO. La complejidad de operaciones de búsqueda, inserción y eliminación en un BST equilibrado es **O(log n)**, lo cual es eficiente para manejar consultas rápidas. En el peor caso, si el árbol se desequilibra (por ejemplo, se convierte en una lista enlazada), la complejidad puede aumentar a **O(n)**. Sin embargo, este proyecto no requiere un equilibrio dinámico, ya que el BST se reconstruye periódicamente después de cada torneo.
 
-El BST permite realizar búsquedas rápidas basadas en el ELO, crucial para encontrar jugadores específicos de forma eficiente. Esta estructura es ideal para el proyecto, ya que garantiza un acceso rápido a los datos en la mayoría de los casos. 
+**Por qué el BST es adecuado**:  
+El BST es una estructura flexible y eficiente para almacenar datos ordenados como los ELOs de los jugadores. Su orden natural permite búsquedas rápidas y facilita el recorrido en orden, lo cual es esencial para mostrar los jugadores ordenados por ELO después de cada torneo. Aunque una estructura como un **AVL** o **Splay Tree** podría ofrecer mejor rendimiento en términos de equilibrio, el BST es suficiente para este proyecto y cumple con los requerimientos de eficiencia y simplicidad.
 
 **Complejidad General del Programa**
 
-El programa está dominado por dos operaciones principales: la simulación del torneo y el ordenamiento de jugadores. La simulación tiene una complejidad de **O(n^2)**, ya que cada jugador se enfrenta a todos los demás una vez. Al combinar esto con el **Merge Sort** para ordenar la lista de jugadores después de actualizar sus ELOs, la complejidad general del programa se mantiene en **O(n^2)**, aceptable dado el tamaño esperado de los datos (un número moderado de jugadores).
+El programa está dominado por dos operaciones principales: la simulación del torneo y el ordenamiento de jugadores. La simulación tiene una complejidad de **O(n^2)**, ya que cada jugador se enfrenta a todos los demás una vez. Al combinar esto con el **Merge Sort** para ordenar la lista de jugadores después de actualizar sus ELOs, la complejidad general del programa se mantiene en **O(n^2)**, lo cual es aceptable para el número de jugadores manejado en este proyecto.
 
 ---
 
@@ -133,13 +137,17 @@ El programa está dominado por dos operaciones principales: la simulación del t
 
 **Selección del Algoritmo de Ordenamiento**
 
-Para el ordenamiento de los jugadores por ELO, se consideraron los algoritmos **Merge Sort**, **Quick Sort**, y **Bubble Sort**. Se eligió **Merge Sort** porque es **estable** (mantiene el orden relativo de elementos iguales) y tiene una complejidad consistente de **O(n log n)**, independientemente del estado inicial de la lista. Esta característica es crítica para listas que pueden tener valores repetidos y que necesitan ordenarse de manera confiable.
+Para el ordenamiento de los jugadores por ELO, se consideraron los algoritmos **Merge Sort**, **Quick Sort**, y **Bubble Sort**. Se eligió **Merge Sort** por su estabilidad y complejidad consistente de **O(n log n)** en todos los casos. La estabilidad de **Merge Sort** asegura que jugadores con el mismo ELO mantengan su orden relativo, lo cual es importante en un contexto de clasificación.
 
-Aunque **Quick Sort** tiene un mejor rendimiento promedio en muchos casos, su peor caso es **O(n^2)**, lo cual puede ser problemático si se enfrenta a listas ya ordenadas o casi ordenadas. **Bubble Sort**, con una complejidad de **O(n^2)** en promedio, fue descartado por su ineficiencia en listas grandes.
+**Por qué Merge Sort es más eficaz**:  
+**Quick Sort** tiene un promedio de **O(n log n)**, pero en el peor caso (si la lista ya está ordenada o casi ordenada) su complejidad puede ser **O(n^2)**, lo cual podría generar un impacto negativo en el rendimiento. **Bubble Sort** fue descartado por su ineficiencia en listas grandes con complejidad **O(n^2)**, que resultaría en tiempos de ejecución inaceptables.
 
 **Selección de la Estructura de Datos**
 
-Para la búsqueda y almacenamiento de jugadores por ELO, se consideraron las estructuras de datos **árbol binario de búsqueda (BST)** y **tablas hash**. La elección final fue el **BST**, principalmente porque permite realizar búsquedas, inserciones y eliminaciones en tiempo promedio **O(log n)** si el árbol está equilibrado. Esto es más adecuado que una tabla hash en este caso, ya que el BST mantiene el orden natural de los datos, lo cual es útil si se desea realizar recorridos en orden o búsquedas de rangos de ELO.
+Para almacenar y consultar jugadores por ELO, se consideraron **BST** y **tablas hash**. Se eligió el **BST** porque permite búsquedas, inserciones y eliminaciones en **O(log n)** en promedio, manteniendo el orden natural de los datos. Una tabla hash no sería adecuada aquí porque no mantiene el orden y complicaría la organización de la lista de jugadores.
+
+**Por qué el BST es más adecuado**:  
+El BST es especialmente útil en este proyecto porque permite recorrer los datos en orden. Al final del torneo, esta estructura facilita la impresión de los jugadores ordenados sin necesidad de realizar un ordenamiento adicional. Esto, además de la eficiencia de **O(log n)** en promedio para búsquedas y modificaciones, hace que el BST sea ideal para este tipo de consulta de datos.
 
 ---
 
