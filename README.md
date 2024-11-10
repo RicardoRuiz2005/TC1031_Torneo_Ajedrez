@@ -173,7 +173,7 @@ Se añadió la opción de exportar la lista de jugadores a un archivo de texto (
 
 ## Referencia a la Guía de Estilos
 
-Para mantener la coherencia y legibilidad del código, se utilizó la [Guía de Estilo de Google para C++](https://google.github.io/styleguide/cppguide.html) como referencia. Se aplicaron las siguientes prácticas:
+Para mantener la coherencia y legibilidad del código, se utilizó la [Guía de Estilo de Google para C++](https://google.github.io/styleguide/cppguide.html) como referencia. Donde aplique las siguientes prácticas:
 
 - **Nombres descriptivos** para variables y funciones, evitando abreviaturas ambiguas.
 - **Comentarios explicativos** en funciones clave, describiendo propósito, parámetros, salida y complejidad.
