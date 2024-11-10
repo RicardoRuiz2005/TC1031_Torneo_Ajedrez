@@ -58,6 +58,9 @@ En este avance, se agregaron nuevas funcionalidades y mejoras al programa.
 2. **Reubicación de la Opción de Salida**  
    La opción de salida del programa fue asignada a la opción 6 en el menú, mejorando la organización y claridad del menú de opciones.
 
+3. **Implementación de Carga de Jugadores desde Archivo**  
+   Se añadió una función que permite cargar jugadores desde un archivo CSV. Este archivo contiene el nombre y ELO de cada jugador, y el programa los añade automáticamente al BST o a la lista de jugadores.
+
 ---
 
 ## Instrucciones para Compilar el Proyecto
@@ -76,7 +79,7 @@ Para ejecutar el proyecto, utiliza el siguiente comando en la terminal:
 
 ## Descripción de las Entradas del Proyecto
 
-El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero permite agregar nuevos jugadores durante la ejecución. Al agregar un jugador, se solicita:
+El programa no requiere archivos externos para las entradas. Se inicializa con una lista de jugadores predefinidos, pero permite agregar nuevos jugadores durante la ejecución o cargar una lista desde un archivo CSV. Al agregar un jugador, se solicita:
 
 - **Nombre del jugador**: Una cadena de texto.
 - **ELO del jugador**: Un número entero entre 1 y 4000.
