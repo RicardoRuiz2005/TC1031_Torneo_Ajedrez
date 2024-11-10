@@ -116,54 +116,67 @@ El programa genera las siguientes salidas:
 
 ### SICT0301: Evalúa los Componentes
 
-**Análisis de Complejidad de los Algoritmos de Ordenamiento**
+**Análisis de Complejidad Completo**
 
-El algoritmo de ordenamiento seleccionado para este proyecto es **Merge Sort**, una opción adecuada cuando se necesita estabilidad y una complejidad **O(n log n)** en el mejor, promedio y peor caso. **Merge Sort** es un algoritmo de división y conquista que divide la lista en sublistas, las ordena recursivamente y luego las combina. Su estabilidad es clave aquí, ya que mantiene el orden relativo de jugadores con ELO iguales, lo cual es importante en competiciones donde los jugadores pueden tener un rendimiento similar.
+1. **Simulación del Torneo**:  
+   La simulación de un torneo entre `n` jugadores requiere que cada jugador se enfrente a todos los demás, resultando en una complejidad de **O(n²)**, ya que cada partida involucra una actualización del ELO. En el mejor caso, la complejidad sigue siendo **O(n²)**, pues cada jugador debe participar en las mismas comparaciones independientemente de los resultados. Esta es la operación dominante en el programa.
 
-**Por qué Merge Sort es adecuado**:  
-A diferencia de otros algoritmos como **Quick Sort**, que tiene un peor caso de **O(n^2)**, **Merge Sort** es consistente y eficiente para listas grandes. Aunque **Quick Sort** puede ser más rápido en promedio, su inestabilidad y posible peor caso lo hacen menos confiable para listas ordenadas o parcialmente ordenadas, como las que se usan en este proyecto.
+2. **Merge Sort**:  
+   Utilizado para ordenar los jugadores por ELO después del torneo, el algoritmo **Merge Sort** tiene una complejidad de **O(n log n)** en todos los casos (mejor, promedio y peor), lo que lo hace ideal para listas de jugadores, garantizando estabilidad en el orden.
 
-**Análisis Completo de Complejidad de la Estructura de Datos (BST)**
+3. **BST (Árbol Binario de Búsqueda)**:  
+   El BST se utiliza para insertar y buscar jugadores en función de su ELO. La complejidad promedio para inserciones y búsquedas en un BST es **O(log n)**. En el peor caso, cuando el árbol se convierte en una lista enlazada (por falta de equilibrio), la complejidad se vuelve **O(n)**. Dado el tamaño del conjunto de jugadores, el BST se mantiene eficiente sin necesidad de equilibrio dinámico, lo que permite un rendimiento aceptable.
 
-El proyecto utiliza un **árbol binario de búsqueda (BST)** para almacenar y buscar jugadores por ELO. La complejidad de operaciones de búsqueda, inserción y eliminación en un BST equilibrado es **O(log n)**, lo cual es eficiente para manejar consultas rápidas. En el peor caso, si el árbol se desequilibra (por ejemplo, se convierte en una lista enlazada), la complejidad puede aumentar a **O(n)**. Sin embargo, este proyecto no requiere un equilibrio dinámico, ya que el BST se reconstruye periódicamente después de cada torneo.
-
-**Por qué el BST es adecuado**:  
-El BST es una estructura flexible y eficiente para almacenar datos ordenados como los ELOs de los jugadores. Su orden natural permite búsquedas rápidas y facilita el recorrido en orden, lo cual es esencial para mostrar los jugadores ordenados por ELO después de cada torneo. Aunque una estructura como un **AVL** o **Splay Tree** podría ofrecer mejor rendimiento en términos de equilibrio, el BST es suficiente para este proyecto y cumple con los requerimientos de eficiencia y simplicidad.
-
-**Complejidad General del Programa**
-
-El programa está dominado por dos operaciones principales: la simulación del torneo y el ordenamiento de jugadores. La simulación tiene una complejidad de **O(n^2)**, ya que cada jugador se enfrenta a todos los demás una vez. Al combinar esto con el **Merge Sort** para ordenar la lista de jugadores después de actualizar sus ELOs, la complejidad general del programa se mantiene en **O(n^2)**, lo cual es aceptable para el número de jugadores manejado en este proyecto.
-
----
+**Complejidad General del Programa**:  
+La complejidad general está dominada por la simulación de partidas, lo que resulta en **O(n²)**. Sin embargo, al combinar esto con el ordenamiento y las operaciones de búsqueda e inserción, el rendimiento es adecuado para el contexto de este proyecto, que no maneja listas extremadamente grandes.
 
 ### SICT0302: Toma Decisiones
 
 **Selección del Algoritmo de Ordenamiento**
 
-Para el ordenamiento de los jugadores por ELO, se consideraron los algoritmos **Merge Sort**, **Quick Sort**, y **Bubble Sort**. Se eligió **Merge Sort** por su estabilidad y complejidad consistente de **O(n log n)** en todos los casos. La estabilidad de **Merge Sort** asegura que jugadores con el mismo ELO mantengan su orden relativo, lo cual es importante en un contexto de clasificación.
+Se seleccionó **Merge Sort** debido a su consistencia y estabilidad. La estabilidad asegura que los jugadores con el mismo ELO mantengan su orden relativo, lo cual es útil en competiciones donde el orden puede tener implicaciones en la clasificación. Se consideraron **Quick Sort** y **Bubble Sort**, pero fueron descartados:
 
-**Por qué Merge Sort es más eficaz**:  
-**Quick Sort** tiene un promedio de **O(n log n)**, pero en el peor caso (si la lista ya está ordenada o casi ordenada) su complejidad puede ser **O(n^2)**, lo cual podría generar un impacto negativo en el rendimiento. **Bubble Sort** fue descartado por su ineficiencia en listas grandes con complejidad **O(n^2)**, que resultaría en tiempos de ejecución inaceptables.
+- **Quick Sort**: Aunque su promedio es **O(n log n)**, en el peor caso su complejidad es **O(n²)**, lo cual podría afectar el rendimiento si la lista ya está ordenada.
+- **Bubble Sort**: Descartado debido a su ineficiencia **O(n²)**, especialmente en listas largas.
 
 **Selección de la Estructura de Datos**
 
-Para almacenar y consultar jugadores por ELO, se consideraron **BST** y **tablas hash**. Se eligió el **BST** porque permite búsquedas, inserciones y eliminaciones en **O(log n)** en promedio, manteniendo el orden natural de los datos. Una tabla hash no sería adecuada aquí porque no mantiene el orden y complicaría la organización de la lista de jugadores.
+El **BST** fue elegido por su simplicidad y eficiencia en **O(log n)** promedio para inserciones y búsquedas, manteniendo el orden natural de los datos. También se consideraron estructuras como **AVL Tree** y **Splay Tree**, pero fueron descartadas debido a su complejidad de implementación y el sobrecosto de equilibrio en cada inserción.
 
-**Por qué el BST es más adecuado**:  
-El BST es especialmente útil en este proyecto porque permite recorrer los datos en orden. Al final del torneo, esta estructura facilita la impresión de los jugadores ordenados sin necesidad de realizar un ordenamiento adicional. Esto, además de la eficiencia de **O(log n)** en promedio para búsquedas y modificaciones, hace que el BST sea ideal para este tipo de consulta de datos.
-
----
+**Justificación del BST**:  
+El BST proporciona una estructura fácil de implementar y eficiente para manejar una cantidad moderada de datos. Aunque un **AVL Tree** o **Splay Tree** podría mejorar el rendimiento en búsquedas intensivas, el BST es suficiente para este proyecto, que no requiere un equilibrio continuo ni una alta frecuencia de consultas.
 
 ### SICT0303: Implementa Acciones Científicas
 
-**Implementa Mecanismos para Consultar Información de las Estructuras**
+**Cálculo de ELO en la Simulación**
 
-Se implementaron métodos específicos para consultar información de los jugadores usando el BST. La función `BuscarJugadorPorELO` permite buscar un jugador específico por su ELO de forma eficiente.
+En cada partida, el cálculo del ELO se realiza utilizando el modelo de puntuación ELO, donde la probabilidad de que un jugador gane se calcula en función de la diferencia de ELOs. Después de cada partida, se ajustan los ELOs de los jugadores:
+
+1. **Probabilidad de Victoria**: Calculada con la fórmula:
+   \[
+   P(A) = \frac{1}{1 + 10^{(ELO_B - ELO_A) / 400}}
+   \]
+
+2. **Actualización de ELO**: La puntuación ELO de cada jugador se ajusta según el resultado de la partida, utilizando una constante de ajuste (K-Factor). Si el jugador gana, pierde o empata, el ELO se actualiza para reflejar la expectativa frente al resultado real.
+
+Este mecanismo refleja un enfoque científico en la simulación de torneos de ajedrez, ya que utiliza un sistema de puntuación reconocido para ajustar los ELOs en función de la competencia.
 
 **Implementa Mecanismos de Lectura de Archivos para Cargar Datos**
 
-Aunque en este avance no se implementó la lectura de archivos para cargar datos, el código está estructurado para incluir fácilmente esta funcionalidad en el futuro. La clase `Jugador` y la estructura `BST` pueden adaptarse para recibir datos de archivos en formatos como CSV.
+Se implementó la función de carga de jugadores desde un archivo CSV. Esta función valida el formato de cada línea y el rango de ELO, descartando registros que no cumplan con los requisitos.
 
 **Implementa Mecanismos de Escritura de Archivos para Guardar los Datos**
 
 Se añadió la opción de exportar la lista de jugadores a un archivo de texto (`jugadores.txt`). Esto permite que los datos sean accesibles fuera del programa, proporcionando una manera organizada de consultar y preservar la información generada durante la ejecución.
+
+---
+
+## Referencia a la Guía de Estilos
+
+Para mantener la coherencia y legibilidad del código, se utilizó la [Guía de Estilo de Google para C++](https://google.github.io/styleguide/cppguide.html) como referencia. Se aplicaron las siguientes prácticas:
+
+- **Nombres descriptivos** para variables y funciones, evitando abreviaturas ambiguas.
+- **Comentarios explicativos** en funciones clave, describiendo propósito, parámetros, salida y complejidad.
+- **Consistencia en el formato** de indentación, llaves y espacios para mejorar la legibilidad.
+
+Estas prácticas ayudan a garantizar que el código sea claro y mantenible.
