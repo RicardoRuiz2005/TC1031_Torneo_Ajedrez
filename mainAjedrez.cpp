@@ -97,7 +97,7 @@ int main() {
     jugadores.push_back(Jugador("Levon Aronian", 2775));
     jugadores.push_back(Jugador("Hikaru Nakamura", 2768));
     jugadores.push_back(Jugador("Wesley So", 2766));
-    jugadores.push_back(Jugador("Maxime Vachier-Lagrave", 2764));
+    jugadores.push_back(Jugador("Maxime Vachier", 2764));
     jugadores.push_back(Jugador("Shakhriyar Mamedyarov", 2763));
     jugadores.push_back(Jugador("Teimour Radjabov", 2765));
     jugadores.push_back(Jugador("Sergey Karjakin", 2758));
