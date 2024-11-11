@@ -59,7 +59,7 @@ En este avance, se agregaron nuevas funcionalidades y mejoras al programa.
    La opción de salida del programa fue asignada a la opción 7 en el menú, mejorando la organización y claridad del menú de opciones.
 
 3. **Implementación de Carga de Jugadores desde Archivo**  
-   Se añadió una función que permite cargar jugadores desde un archivo CSV. Este archivo contiene el nombre y ELO de cada jugador, y el programa los añade automáticamente al BST o a la lista de jugadores.
+   Se añadió una función que permite cargar jugadores desde un archivo jugadores.txt . Este archivo contiene el nombre y ELO de cada jugador, y el programa los añade automáticamente al BST o a la lista de jugadores.
 
 ---
 
