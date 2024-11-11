@@ -161,7 +161,7 @@ En cada partida, el cálculo del ELO se realiza utilizando el modelo de puntuaci
 
 **Implementa Mecanismos de Lectura y Escritura de Archivos**
 
-Se implementó la función de carga de jugadores desde un archivo CSV, validando el formato de cada línea y el rango de ELO. La opción de exportar la lista de jugadores a un archivo de texto (`jugadores.txt`) también permite conservar los datos generados.
+Se implementó la función de carga de jugadores desde un archivo jugadores.txt, validando el formato de cada línea y el rango de ELO. La opción de exportar la lista de jugadores a un archivo de texto (`jugadores.txt`) también permite conservar los datos generados.
 
 ---
 
