@@ -1,3 +1,9 @@
+---
+title: "Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO"
+author: "Ricardo Ruiz Cano"
+output: html_document
+---
+
 # Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
 
 **Autor**: Ricardo Ruiz Cano  
@@ -7,7 +13,7 @@
 
 ## Resumen General del Proyecto
 
-Este proyecto simula un torneo de ajedrez en el cual los jugadores están registrados con sus nombres y valores de ELO, reflejando su nivel de habilidad en el juego. Los jugadores se organizan de mayor a menor según su ELO utilizando el algoritmo **Merge Sort** y compiten en un torneo simulado, donde se enfrentan y sus ELOs se actualizan en función de los resultados de cada partida.
+Este proyecto simula un torneo de ajedrez en el cual los jugadores están registrados con sus nombres y valores de ELO, reflejando su nivel de habilidad en el juego. Los jugadores se organizan de mayor a menor según su ELO utilizando el algoritmo `std::sort`, que por defecto utiliza **Quick Sort** en lugar de **Merge Sort**. Los jugadores compiten en un torneo simulado, donde se enfrentan y sus ELOs se actualizan en función de los resultados de cada partida.
 
 ---
 
@@ -17,7 +23,7 @@ En el primer avance del proyecto, se implementaron las funcionalidades principal
 
 - Registro de jugadores con sus nombres y valores de ELO.
 - Visualización de la lista de jugadores con sus ELOs.
-- Ordenamiento de los jugadores usando **Merge Sort** para organizar de mayor a menor ELO.
+- Ordenamiento de los jugadores usando `std::sort` para organizar de mayor a menor ELO.
 - Simulación de un torneo, donde los jugadores se enfrentan y sus ELOs se ajustan según los resultados de cada partida.
 - Se muestra la lista de jugadores ordenados por ELO después del torneo.
 
@@ -42,7 +48,7 @@ En el segundo avance, se realizaron mejoras significativas en la funcionalidad d
    Se modificó el README para describir más claramente las funcionalidades y avances del proyecto, haciendo la documentación más formal y accesible.
 
 5. **Implementación de Búsqueda por ELO**  
-   Se añadió la opción de buscar jugadores por su ELO usando un árbol binario de búsqueda (BST), permitiendo a los usuarios encontrar jugadores específicos de manera más eficiente.
+   Se añadió la opción de buscar jugadores por su ELO usando un árbol binario de búsqueda (BST), permitiendo a los usuarios encontrar jugadores específicos de manera más eficiente. El BST también se utiliza para almacenar y organizar los jugadores, con la posibilidad de imprimirlos en orden por su ELO.
 
 ---
 
@@ -56,7 +62,7 @@ En este avance, se agregaron nuevas funcionalidades y mejoras al programa.
    Se añadió la opción de imprimir la lista de jugadores en un archivo de texto (`jugadores.txt`), lo cual permite conservar una copia de los datos generados durante la ejecución del programa.
 
 2. **Reubicación de la Opción de Salida**  
-   La opción de salida del programa fue asignada a la opción 6 en el menú, mejorando la organización y claridad del menú de opciones.
+   La opción de salida del programa fue asignada a la opción 7 en el menú, mejorando la organización y claridad del menú de opciones.
 
 3. **Implementación de Carga de Jugadores desde Archivo**  
    Se añadió una función que permite cargar jugadores desde un archivo CSV. Este archivo contiene el nombre y ELO de cada jugador, y el programa los añade automáticamente al BST o a la lista de jugadores.
@@ -102,7 +108,7 @@ El programa genera las siguientes salidas:
    Muestra los jugadores con sus nombres y ELO iniciales.
 
 2. **Resultados del torneo**  
-   Durante la simulación, se muestran los resultados de cada partida y cómo se ajustan los ELOs de los jugadores.
+   Durante la simulación, se muestran los resultados de cada partida y cómo se ajustan los ELOs de los jugadores. La simulación incluye condiciones simplificadas para empates basadas en un valor aleatorio y la diferencia de ELO.
 
 3. **Lista de jugadores después del torneo**  
    Muestra los jugadores ordenados por su ELO actualizado.
@@ -121,23 +127,20 @@ El programa genera las siguientes salidas:
 1. **Simulación del Torneo**:  
    La simulación de un torneo entre `n` jugadores requiere que cada jugador se enfrente a todos los demás, resultando en una complejidad de **O(n²)**, ya que cada partida involucra una actualización del ELO. En el mejor caso, la complejidad sigue siendo **O(n²)**, pues cada jugador debe participar en las mismas comparaciones independientemente de los resultados. Esta es la operación dominante en el programa.
 
-2. **Merge Sort**:  
-   Utilizado para ordenar los jugadores por ELO después del torneo, el algoritmo **Merge Sort** tiene una complejidad de **O(n log n)** en todos los casos (mejor, promedio y peor), lo que lo hace ideal para listas de jugadores, garantizando estabilidad en el orden.
+2. **Quick Sort (Implementado con `std::sort`)**:  
+   Utilizado para ordenar los jugadores por ELO después del torneo, `std::sort` tiene una complejidad promedio de **O(n log n)**, pero puede ser **O(n²)** en el peor caso. Es más eficiente en promedio que Bubble Sort y tiene buena adaptabilidad para listas de tamaño moderado.
 
 3. **BST (Árbol Binario de Búsqueda)**:  
-   El BST se utiliza para insertar y buscar jugadores en función de su ELO. La complejidad promedio para inserciones y búsquedas en un BST es **O(log n)**. En el peor caso, cuando el árbol se convierte en una lista enlazada (por falta de equilibrio), la complejidad se vuelve **O(n)**. Dado el tamaño del conjunto de jugadores, el BST se mantiene eficiente sin necesidad de equilibrio dinámico, lo que permite un rendimiento aceptable.
+   El BST se utiliza para insertar y buscar jugadores en función de su ELO. La complejidad promedio para inserciones y búsquedas en un BST es **O(log n)**. En el peor caso, cuando el árbol se convierte en una lista enlazada (por falta de equilibrio), la complejidad se vuelve **O(n)**. Dado el tamaño del conjunto de jugadores, el BST se mantiene eficiente sin necesidad de equilibrio dinámico.
 
 **Complejidad General del Programa**:  
-La complejidad general está dominada por la simulación de partidas, lo que resulta en **O(n²)**. Sin embargo, al combinar esto con el ordenamiento y las operaciones de búsqueda e inserción, el rendimiento es adecuado para el contexto de este proyecto, que no maneja listas extremadamente grandes.
+La complejidad general está dominada por la simulación de partidas, lo que resulta en **O(n²)**. Combinando esto con el ordenamiento y las operaciones de búsqueda e inserción, el rendimiento es adecuado para el contexto de este proyecto, que no maneja listas extremadamente grandes.
 
 ### SICT0302: Toma Decisiones
 
 **Selección del Algoritmo de Ordenamiento**
 
-Se seleccionó **Merge Sort** debido a su consistencia y estabilidad. La estabilidad asegura que los jugadores con el mismo ELO mantengan su orden relativo, lo cual es útil en competiciones donde el orden puede tener implicaciones en la clasificación. Se consideraron **Quick Sort** y **Bubble Sort**, pero fueron descartados:
-
-- **Quick Sort**: Aunque su promedio es **O(n log n)**, en el peor caso su complejidad es **O(n²)**, lo cual podría afectar el rendimiento si la lista ya está ordenada.
-- **Bubble Sort**: Descartado debido a su ineficiencia **O(n²)**, especialmente en listas largas.
+Se seleccionó **Quick Sort** debido a su consistencia en listas moderadas y a su disponibilidad en `std::sort`. Aunque el proyecto menciona **Merge Sort**, Quick Sort garantiza un rendimiento promedio óptimo sin la necesidad de implementar manualmente otro algoritmo de ordenamiento. Algoritmos como Bubble Sort fueron descartados por su complejidad de **O(n²)** en todos los casos.
 
 **Selección de la Estructura de Datos**
 
@@ -157,17 +160,11 @@ En cada partida, el cálculo del ELO se realiza utilizando el modelo de puntuaci
    P(A) = \frac{1}{1 + 10^{(ELO_B - ELO_A) / 400}}
    \]
 
-2. **Actualización de ELO**: La puntuación ELO de cada jugador se ajusta según el resultado de la partida, utilizando una constante de ajuste (K-Factor). Si el jugador gana, pierde o empata, el ELO se actualiza para reflejar la expectativa frente al resultado real.
+2. **Actualización de ELO**: La puntuación ELO de cada jugador se ajusta según el resultado de la partida, utilizando una constante de ajuste (K-Factor). La simulación actual incluye una lógica simplificada para el empate, condicionada por el valor aleatorio y la diferencia de ELO entre jugadores.
 
-Este mecanismo refleja un enfoque científico en la simulación de torneos de ajedrez, ya que utiliza un sistema de puntuación reconocido para ajustar los ELOs en función de la competencia.
+**Implementa Mecanismos de Lectura y Escritura de Archivos**
 
-**Implementa Mecanismos de Lectura de Archivos para Cargar Datos**
-
-Se implementó la función de carga de jugadores desde un archivo CSV. Esta función valida el formato de cada línea y el rango de ELO, descartando registros que no cumplan con los requisitos.
-
-**Implementa Mecanismos de Escritura de Archivos para Guardar los Datos**
-
-Se añadió la opción de exportar la lista de jugadores a un archivo de texto (`jugadores.txt`). Esto permite que los datos sean accesibles fuera del programa, proporcionando una manera organizada de consultar y preservar la información generada durante la ejecución.
+Se implementó la función de carga de jugadores desde un archivo CSV, validando el formato de cada línea y el rango de ELO. La opción de exportar la lista de jugadores a un archivo de texto (`jugadores.txt`) también permite conservar los datos generados.
 
 ---
 
