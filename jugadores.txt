@@ -14,4 +14,7 @@ Lista de jugadores y sus ELOs:
 12- Sergey Karjakin - ELO: 2758
 13- Vladimir Kramnik - ELO: 2753
 14- Veselin Topalov - ELO: 2750
-15- Viswanathan Anand - ELO: 2749
+15- Viswanathan Anand - ELO: 27
+16- Viswanathan Anand - ELO: 274
+17- Viswanathan Anand - ELO: 1235
+18- Viswanathan Anand - ELO: 2700
