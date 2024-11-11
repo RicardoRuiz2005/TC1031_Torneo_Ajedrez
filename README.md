@@ -1,12 +1,19 @@
+---
+title: "Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO"
+author: "Ricardo Ruiz Cano"
+output: html_document
+---
+
 # Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
 
 **Autor**: Ricardo Ruiz Cano  
 **Matrícula**: A01707233
 
+---
 
 ## Resumen General del Proyecto
 
-Este proyecto simula un torneo de ajedrez en el cual los jugadores están registrados con sus nombres y valores de ELO, reflejando su nivel de habilidad en el juego. Los jugadores se organizan de mayor a menor según su ELO utilizando el algoritmo `std::sort`, que por defecto utiliza **Quick Sort** en lugar de **Merge Sort**. Los jugadores compiten en un torneo simulado, donde se enfrentan y sus ELOs se actualizan en función de los resultados de cada partida.
+Este proyecto simula un torneo de ajedrez en el cual los jugadores están registrados con sus nombres y valores de ELO, reflejando su nivel de habilidad en el juego. Los jugadores se organizan de mayor a menor según su ELO utilizando el algoritmo `std::sort`, una función estándar de la biblioteca de C++ optimizada para manejar eficientemente el ordenamiento en listas de datos. En el torneo, los jugadores compiten entre sí y sus ELOs se actualizan en función de los resultados de cada partida.
 
 ---
 
@@ -120,11 +127,14 @@ El programa genera las siguientes salidas:
 1. **Simulación del Torneo**:  
    La simulación de un torneo entre `n` jugadores requiere que cada jugador se enfrente a todos los demás, resultando en una complejidad de **O(n²)**, ya que cada partida involucra una actualización del ELO. En el mejor caso, la complejidad sigue siendo **O(n²)**, pues cada jugador debe participar en las mismas comparaciones independientemente de los resultados. Esta es la operación dominante en el programa.
 
-2. **Quick Sort (Implementado con `std::sort`)**:  
-   Utilizado para ordenar los jugadores por ELO después del torneo, `std::sort` tiene una complejidad promedio de **O(n log n)**, pero puede ser **O(n²)** en el peor caso. Es más eficiente en promedio que Bubble Sort y tiene buena adaptabilidad para listas de tamaño moderado.
+2. **Uso de `std::sort` para Ordenamiento**:  
+   Utilizado para ordenar los jugadores por ELO después del torneo, `std::sort` tiene una complejidad de **O(n log n)** en promedio y en el mejor caso, aunque en el peor caso puede llegar a **O(n²)**.
 
-3. **BST (Árbol Binario de Búsqueda)**:  
-   El BST se utiliza para insertar y buscar jugadores en función de su ELO. La complejidad promedio para inserciones y búsquedas en un BST es **O(log n)**. En el peor caso, cuando el árbol se convierte en una lista enlazada (por falta de equilibrio), la complejidad se vuelve **O(n)**. Dado el tamaño del conjunto de jugadores, el BST se mantiene eficiente sin necesidad de equilibrio dinámico.
+   - **Caso Promedio**: `std::sort` realiza ordenamiento en **O(n log n)** en promedio debido a la estructura de Quick Sort, que divide la lista en subconjuntos y ordena cada subconjunto de manera recursiva. Esta eficiencia es particularmente útil para listas grandes, ya que reduce el número de comparaciones y particiones necesarias.
+
+   - **Mejor Caso**: En el mejor escenario, **O(n log n)**, ocurre cuando la lista está en un estado cercano al orden requerido, permitiendo que el algoritmo aproveche su eficiencia al evitar divisiones innecesarias.
+
+   - **Peor Caso**: **O(n²)**. Esto sucede si los elementos están en un orden que causa particiones desequilibradas, como si la lista ya está casi completamente ordenada o inversamente ordenada. Sin embargo, `std::sort` implementa técnicas para minimizar la probabilidad de este caso, como usar un algoritmo híbrido (incluso combinando Quick Sort con Heap Sort o Insertion Sort para manejar listas pequeñas o parcialmente ordenadas).
 
 **Complejidad General del Programa**:  
 La complejidad general está dominada por la simulación de partidas, lo que resulta en **O(n²)**. Combinando esto con el ordenamiento y las operaciones de búsqueda e inserción, el rendimiento es adecuado para el contexto de este proyecto, que no maneja listas extremadamente grandes.
@@ -133,7 +143,7 @@ La complejidad general está dominada por la simulación de partidas, lo que res
 
 **Selección del Algoritmo de Ordenamiento**
 
-Se seleccionó **Quick Sort** debido a su consistencia en listas moderadas y a su disponibilidad en `std::sort`. Aunque el proyecto menciona **Merge Sort**, Quick Sort garantiza un rendimiento promedio óptimo sin la necesidad de implementar manualmente otro algoritmo de ordenamiento. Algoritmos como Bubble Sort fueron descartados por su complejidad de **O(n²)** en todos los casos.
+Se eligió `std::sort` debido a su alta eficiencia promedio y a la optimización inherente de la biblioteca estándar de C++. Aunque **Merge Sort** fue considerado debido a su estabilidad (mantiene el orden relativo en caso de valores iguales), se descartó porque en este contexto la estabilidad no es un requisito estricto, ya que los ELOs son únicos o el orden exacto en empates no afecta al proyecto. Además, `std::sort` reduce el tiempo de ejecución gracias a su enfoque adaptativo de algoritmos híbridos, lo cual es útil en listas de datos moderadas como esta.
 
 **Selección de la Estructura de Datos**
 
