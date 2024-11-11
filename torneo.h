@@ -1,6 +1,5 @@
-//Proyecto integrador, torneo de Ajedrez
-//Ricardo Ruiz Cano     A01707233
-
+// Proyecto integrador, torneo de Ajedrez
+// Ricardo Ruiz Cano     A01707233
 
 #ifndef TORNEO_H
 #define TORNEO_H
@@ -23,13 +22,13 @@ public:
     // Constructor para inicializar un jugador
     Jugador(const string& nombre, int elo) : nombre(nombre), elo(elo) {}
 
-    // Muestra la información del jugador
+    // Muestra la informacion del jugador
     void Mostrar() const {
         cout << "Nombre: " << nombre << ", ELO: " << elo << endl;
     }
 };
 
-// Clase Nodo para el árbol de búsqueda binaria (BST)
+// Clase Nodo para el arbol de busqueda binaria (BST)
 class Nodo {
 public:
     Jugador jugador;
@@ -45,12 +44,12 @@ class ArbolBST {
 private:
     Nodo* raiz_;
 
-    // Inserta un nodo en el árbol BST de forma recursiva
+    // Inserta un nodo en el arbol BST de forma recursiva
     Nodo* Insertar(Nodo* nodo, const Jugador& jugador) {
-        if (nodo == NULL) {  // Si el nodo está vacío, lo creo
+        if (nodo == NULL) {  // Si el nodo esta vacio, lo creo
             return new Nodo(jugador);
         }
-        // Verifico dónde insertar al comparar el ELO
+        // Verifico donde insertar al comparar el ELO
         if (jugador.elo < nodo->jugador.elo) {
             nodo->izquierda = Insertar(nodo->izquierda, jugador);
         } else if (jugador.elo > nodo->jugador.elo) {
@@ -64,7 +63,7 @@ private:
         if (nodo == NULL) {  // Si no encuentro el nodo, regreso NULL
             return NULL;
         }
-        // Verifico si el ELO coincide o hacia dónde buscar
+        // Verifico si el ELO coincide o hacia donde buscar
         if (elo == nodo->jugador.elo) {
             return &nodo->jugador;
         } else if (elo < nodo->jugador.elo) {
@@ -75,19 +74,19 @@ private:
     }
 
 public:
-    ArbolBST() : raiz_(NULL) {}  // Inicializa la raíz en NULL
+    ArbolBST() : raiz_(NULL) {}  // Inicializa la raiz en NULL
 
-    // Inserta un jugador en el árbol llamando a la función recursiva
+    // Inserta un jugador en el arbol llamando a la funcion recursiva
     void InsertarJugador(const Jugador& jugador) {
         raiz_ = Insertar(raiz_, jugador);
     }
 
-    // Busca un jugador por su ELO llamando a la función recursiva
+    // Busca un jugador por su ELO llamando a la funcion recursiva
     Jugador* BuscarJugadorPorELO(int elo) {
         return Buscar(raiz_, elo);
     }
 
-    // Imprime los jugadores en orden (recorre el árbol en inorden)
+    // Imprime los jugadores en orden (recorre el arbol en inorden)
     void ImprimirEnOrden(Nodo* nodo) {
         if (nodo != NULL) {  // Si el nodo no es NULL, continuo imprimiendo
             ImprimirEnOrden(nodo->izquierda);
@@ -96,7 +95,7 @@ public:
         }
     }
 
-    // Imprime todos los jugadores desde la raíz del árbol
+    // Imprime todos los jugadores desde la raiz del arbol
     void ImprimirJugadores() {
         ImprimirEnOrden(raiz_);
     }
@@ -124,9 +123,9 @@ void OrdenarELO(vector<Jugador>& jugadores) {
     sort(jugadores.begin(), jugadores.end(), CompararELO);
 }
 
-// Simulación del torneo
+// Simulacion del torneo
 void SimularTorneo(vector<Jugador>& jugadores, ArbolBST& arbol_jugadores) {
-    const int kKFactor = 32;  // Constante de ajuste para el cálculo del nuevo ELO
+    const int kKFactor = 32;  // Constante de ajuste para el calculo del nuevo ELO
 
     // Simulo las partidas entre los jugadores
     for (size_t i = 0; i < jugadores.size(); ++i) {
@@ -141,7 +140,7 @@ void SimularTorneo(vector<Jugador>& jugadores, ArbolBST& arbol_jugadores) {
             double random_value = static_cast<double>(rand()) / RAND_MAX;
             double resultado;
 
-            // Verifico quién gana basado en el valor aleatorio y las probabilidades
+            // Verifico quien gana basado en el valor aleatorio y las probabilidades
             if (random_value < prob_a) {
                 resultado = 1;
                 cout << jugadores[i].nombre << " gana contra " << jugadores[j].nombre << endl;
@@ -165,8 +164,8 @@ void SimularTorneo(vector<Jugador>& jugadores, ArbolBST& arbol_jugadores) {
 
     OrdenarELO(jugadores);  // Ordena a los jugadores por su nuevo ELO
 
-    // Limpio el árbol actual y vuelvo a insertar los jugadores con sus nuevos ELOs
-    arbol_jugadores = ArbolBST();  // Reinicio el árbol
+    // Limpio el arbol actual y vuelvo a insertar los jugadores con sus nuevos ELOs
+    arbol_jugadores = ArbolBST();  // Reinicio el arbol
     for (size_t i = 0; i < jugadores.size(); ++i) {
         arbol_jugadores.InsertarJugador(jugadores[i]);  // Inserto los jugadores actualizados
     }
