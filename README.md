@@ -1,9 +1,3 @@
----
-title: "Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO"
-author: "Ricardo Ruiz Cano"
-output: html_document
----
-
 # Proyecto: Torneo de Ajedrez - Simulación y Ordenamiento por ELO
 
 **Autor**: Ricardo Ruiz Cano  
