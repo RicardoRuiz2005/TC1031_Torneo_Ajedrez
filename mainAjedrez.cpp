@@ -216,7 +216,7 @@ int main() {
         } else if (opcion_menu == 6) {
             // Cargar jugadores desde un archivo con formato especial
             string nombre_archivo;
-            cout << "Ingresa el nombre del archivo CSV (incluyendo la extension): ";
+            cout << "Ingresa el nombre del archivo (jugadores.txt): ";
             cin >> nombre_archivo;
             CargarJugadoresDesdeArchivo(nombre_archivo, jugadores, arbol_jugadores);
 
