@@ -1,0 +1,17 @@
+Lista de jugadores y sus ELOs:
+
+1- Magnus Carlsen - ELO: 2852
+2- Ian Nepomniachtchi - ELO: 2793
+3- Ding Liren - ELO: 2811
+4- Fabiano Caruana - ELO: 2786
+5- Anish Giri - ELO: 2779
+6- Levon Aronian - ELO: 2775
+7- Hikaru Nakamura - ELO: 2768
+8- Wesley So - ELO: 2766
+9- Maxime Vachier-Lagrave - ELO: 2764
+10- Shakhriyar Mamedyarov - ELO: 2763
+11- Teimour Radjabov - ELO: 2765
+12- Sergey Karjakin - ELO: 2758
+13- Vladimir Kramnik - ELO: 2753
+14- Veselin Topalov - ELO: 2750
+15- Viswanathan Anand - ELO: 2749
