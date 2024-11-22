@@ -174,3 +174,26 @@ Para mantener la coherencia y legibilidad del código, se utilizó la [Guía de 
 - **Consistencia en el formato** de indentación, llaves y espacios para mejorar la legibilidad.
 
 Estas prácticas ayudan a garantizar que el código sea claro y mantenible.
+
+
+
+
+
+
+
+LINK DE LOS VIDEOS:
+
+- Problema 1: Algoritmos de ordenamiento
+
+Link: https://leetcode.com/problems/sort-the-jumbled-numbers/
+RESUELTO: https://leetcode.com/problems/sort-the-jumbled-numbers/submissions/1443842785
+
+- Problema 2: Estructura de datos lineales
+
+Link: https://leetcode.com/problems/odd-even-linked-list/description/
+RESUELTO: https://leetcode.com/problems/odd-even-linked-list/submissions/1443938816
+
+- Problema 3: Estructura de datos no lineales
+  
+Link: https://leetcode.com/problems/validate-binary-tree-nodes/
+RESUELTO: https://leetcode.com/problems/validate-binary-tree-nodes/description/
