@@ -14,7 +14,7 @@ Lista de jugadores y sus ELOs:
 12- Sergey Karjakin - ELO: 2758
 13- Vladimir Kramnik - ELO: 2753
 14- Veselin Topalov - ELO: 2750
-15- Lalo - ELO: 27
+15- Lalo - ELO: 3456
 16- Angel - ELO: 274
 17- Clara - ELO: 1235
 18- Mauricio - ELO: 2700
