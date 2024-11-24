@@ -189,14 +189,22 @@ Link: https://leetcode.com/problems/sort-the-jumbled-numbers/
 
 RESUELTO: https://leetcode.com/problems/sort-the-jumbled-numbers/submissions/1443842785
 
+Video: https://drive.google.com/file/d/1LJE8wcIw57dwTy4BpMHYgZBKiSIJetcu/view?usp=sharing
+
 - Problema 2: Estructura de datos lineales
 
 Link: https://leetcode.com/problems/odd-even-linked-list/description/
 
 RESUELTO: https://leetcode.com/problems/odd-even-linked-list/submissions/1443938816
 
+Video:
+https://drive.google.com/file/d/1Tjt-yV5Ms2ZviuoETMy_UA968Jomul8y/view?usp=sharing
+
 - Problema 3: Estructura de datos no lineales
   
 Link: https://leetcode.com/problems/validate-binary-tree-nodes/
 
 RESUELTO: https://leetcode.com/problems/validate-binary-tree-nodes/description/
+
+Video:
+https://drive.google.com/file/d/11fPW95jfds4Nk4v-Vo2xapn9sgaCtTK_/view?usp=sharing
